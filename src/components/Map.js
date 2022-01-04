@@ -24,12 +24,12 @@ const Map = (props) => {
 
             <Marker 
                 position = {[-33.033915, -71.59516]}
-                eventHandlers = {{ mouseover : (e) => {e.target.openPopup();},
-                                   mouseout  : (e) => {e.target.closePopup();},
-                                   click     : (e) => {e.target.openPopup();}}}>
+                eventHandlers = {{ mouseover : (e) => {e.target.openPopup(); },
+                                   mouseout  : (e) => {e.target.closePopup();}
+                                }}>
 
                 <Popup>
-                    ID: <br></br>
+                    ID: {props.id} <br></br>
                     Posición: <br></br>
                     Luz: <br></br>
                     Temperatura: <br></br>
