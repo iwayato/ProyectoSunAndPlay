@@ -1,6 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import React from 'react';
 
-const Map = () => {
+const Map = (props) => {
 
     return(
         <div>
@@ -14,23 +15,29 @@ const Map = () => {
                 />
             </head>
 
-            <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}>
+            <MapContainer center={[-33.033915, -71.59516]} zoom={16} scrollWheelZoom={true}>
 
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
 
-                <Marker position = {[-33.033915, -71.59516]}>   
-                    <Popup>
-                        ID : <br></br>
-                        Posición : <br></br>     
-                        Luz : <br></br>
-                        Temperatura : <br></br>
-                        Humedad : <br></br>                            
-                    </Popup>            
-                </Marker>                               
-                
+            <Marker 
+                position = {[-33.033915, -71.59516]}
+                eventHandlers = {{ mouseover : (e) => {e.target.openPopup();},
+                                   mouseout  : (e) => {e.target.closePopup();},
+                                   click     : (e) => {e.target.openPopup();}}}>
+
+                <Popup>
+                    ID: <br></br>
+                    Posición: <br></br>
+                    Luz: <br></br>
+                    Temperatura: <br></br>
+                    Humedad: <br></br>
+                </Popup>
+
+            </Marker>
+
             </MapContainer>
 
         </div>
