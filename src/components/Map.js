@@ -4,15 +4,10 @@ import useSwr from 'swr';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { L } from 'leaflet';
 
+
 const fetcher = (...args) => fetch(...args).then(response => response.json());
 
-const Map = (props) => {
-
-    const url = "https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2019-10";
-    const { data, error } = useSwr(url, { fetcher });
-    const crimes = data && !error ? data.slice(0, 50000) : [];
-
-    const showClusterInfo = (e, id) => {
+const showClusterInfo = (e, id) => {
         const totalNodos = e.layer.getAllChildMarkers().length;
 
         let sumLats = 0;
@@ -27,13 +22,21 @@ const Map = (props) => {
         const promLong = sumLong/totalNodos;
 
         console.log(totalNodos, promLat, promLong);
+};
 
-        var popup = L.popup()
-            .setLatLng([promLat, promLong])
-            .setContent("Soy un popup")
-            .openOn(id)
-    };
+const Map = (props) => {
 
+    const url = "https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2019-10";
+    const { data, error } = useSwr(url, { fetcher });
+    const crimes = data && !error ? data.slice(0, 50000) : [];
+
+    {var circle = L.circle([51.508, -0.11], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 500
+    }).addTo(Map)};
+    
     return(
         <div id="map">
             <head>
