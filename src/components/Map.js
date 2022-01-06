@@ -63,7 +63,7 @@ const Map = (props) => {
 
                 <MarkerClusterGroup
                     disableClusteringAtZoom={18}
-                    maxClusterRadius={70}
+                    maxClusterRadius={80}
                     singleMarkerMode={false}
                     eventHandlers = {{ clustermouseover : (e, id) => {showClusterInfo(e, id)},
                                        clustermouseout  : (e, id) => {console.log(id)}
