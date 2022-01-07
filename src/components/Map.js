@@ -1,94 +1,79 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import React from 'react';
+import { MapContainer, TileLayer, Marker, Popup, LayersControl } from 'react-leaflet';
+import React, { useEffect } from 'react';
 import useSwr from 'swr';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
+import Links from './Links';
+import { useMap } from 'react-leaflet';
+import L from "leaflet";
+import { addressPoints } from "./addressPoints";
+
 
 const fetcher = (...args) => fetch(...args).then(response => response.json());
 
-const showClusterInfo = (e) => {
-        const totalNodos = e.layer.getAllChildMarkers().length;
-
-        let sumLats = 0;
-        let sumLong = 0;
-
-        for (let index = 0; index < totalNodos; index++) {
-            sumLats = sumLats + e.layer.getAllChildMarkers()[index]._latlng.lat;
-            sumLong = sumLong + e.layer.getAllChildMarkers()[index]._latlng.lng;
-        }
-
-        const promLat = sumLats/totalNodos;
-        const promLong = sumLong/totalNodos;
-
-        console.log(totalNodos, promLat, promLong);
-
-};
-
 const Map = (props) => {
 
-    const url = "https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2019-10";
+    const url = "https://data.police.uk/api/crimes-street/all-nodo?lat=52.629729&lng=-1.131592&date=2019-10";
     const { data, error } = useSwr(url, { fetcher });
-    const crimes = data && !error ? data.slice(0, 50000) : [];
-    
+    const nodos = data && !error ? data.slice(0, 5000) : [];
+
+    function MyComponent() {
+        const map = useMap()
+        console.log('map center:', map.getCenter())
+        return map
+      }
+
     return(
-        <div id="map">
-            <head>
-                <link 
-                    rel="stylesheet" 
-                    href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-                    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-                    crossOrigin=""
-                />
 
-                <link
-                rel="stylesheet"
-                href="https://unpkg.com/react-leaflet-markercluster/dist/styles.min.css"
-                />
-            </head>
+        <MapContainer center = {[52.628996, -1.128925]} zoom = {14} maxZoom = {18} scrollWheelZoom = {true}>
 
+        <Links></Links>
 
-            <MapContainer 
-                center = {[52.6376, -1.135171]} 
-                zoom = {15}
-                maxZoom = {18} 
-                scrollWheelZoom = {true}>
+        <LayersControl position='topright'>
 
-                <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
+        <LayersControl.BaseLayer checked name = "Nodos">
+            <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+        </LayersControl.BaseLayer>
 
-                <MarkerClusterGroup
-                    disableClusteringAtZoom={18}
-                    maxClusterRadius={80}
-                    singleMarkerMode={false}
-                    eventHandlers = {{ clustermouseover : (e, id) => {showClusterInfo(e)},
-                                       clustermouseout  : (e, id) => {console.log(id)}
-                                    }}>
+        <LayersControl.Overlay checked name='Tachas instaladas'>
+            <MarkerClusterGroup disableClusteringAtZoom={18} maxClusterRadius={80} singleMarkerMode={false}>
+                {nodos.map(nodo => (
+                    <Marker
+                        key={nodo.id}
+                        position={[nodo.location.latitude, nodo.location.longitude]}
+                        eventHandlers={{mouseover : (e) => {e.target.openPopup(); },
+                                        mouseout  : (e) => {e.target.closePopup();}
+                                        }}>
+                        <Popup>
+                            ID: {nodo.id} <br></br>
+                            Latitud: {nodo.location.latitude} <br></br>
+                            Longitud: {nodo.location.longitude} <br></br>
+                            Luz: <br></br>
+                            Temperatura: <br></br>
+                            Humedad: <br></br>
+                        </Popup>
+                    </Marker>
+                ))};
+            </MarkerClusterGroup>
+        </LayersControl.Overlay>
 
-                    {crimes.map(crime => (
-                        <Marker
-                            key={crime.id}
-                            position={[crime.location.latitude, crime.location.longitude]}
-                            eventHandlers={{ mouseover : (e) => {e.target.openPopup(); },
-                                             mouseout  : (e) => {e.target.closePopup();}
-                                           }}>
-                            <Popup>
-                                ID: {crime.id} <br></br>
-                                Latitud: {crime.location.latitude} <br></br>
-                                Longitud: {crime.location.longitude} <br></br>
-                                Luz: <br></br>
-                                Temperatura: <br></br>
-                                Humedad: <br></br>
-                            </Popup>
-                        </Marker>
-                    ))};
+        <LayersControl.Overlay name='Mapa de temperatura'>
+                {
+                    useEffect(() => {
+            
+                    const points = addressPoints
+                        ? addressPoints.map((p) => {
+                            return [p[0], p[1]];
+                        })
+                        : [];
+                
+                    L.heatLayer(points).addTo(MyComponent());
 
-                    
-                </MarkerClusterGroup>
+                    }, [])
+                };
+        </LayersControl.Overlay> 
 
-            </MapContainer>
-
-        </div>
+        </LayersControl>
+        </MapContainer>
     )
 };
 
