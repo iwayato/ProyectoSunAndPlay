@@ -4,7 +4,10 @@ import Map from './components/Map'
 function App() {
 
   return (
-    <Map></Map> 
+    <html>
+      <title>hola</title>
+      <Map></Map> 
+    </html>
   );
 }
 

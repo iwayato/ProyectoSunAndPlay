@@ -2,12 +2,10 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import React from 'react';
 import useSwr from 'swr';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import { L } from 'leaflet';
-
 
 const fetcher = (...args) => fetch(...args).then(response => response.json());
 
-const showClusterInfo = (e, id) => {
+const showClusterInfo = (e) => {
         const totalNodos = e.layer.getAllChildMarkers().length;
 
         let sumLats = 0;
@@ -22,6 +20,7 @@ const showClusterInfo = (e, id) => {
         const promLong = sumLong/totalNodos;
 
         console.log(totalNodos, promLat, promLong);
+
 };
 
 const Map = (props) => {
@@ -29,13 +28,6 @@ const Map = (props) => {
     const url = "https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2019-10";
     const { data, error } = useSwr(url, { fetcher });
     const crimes = data && !error ? data.slice(0, 50000) : [];
-
-    {var circle = L.circle([51.508, -0.11], {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 500
-    }).addTo(Map)};
     
     return(
         <div id="map">
@@ -53,6 +45,7 @@ const Map = (props) => {
                 />
             </head>
 
+
             <MapContainer 
                 center = {[52.6376, -1.135171]} 
                 zoom = {15}
@@ -68,12 +61,9 @@ const Map = (props) => {
                     disableClusteringAtZoom={18}
                     maxClusterRadius={80}
                     singleMarkerMode={false}
-                    eventHandlers = {{ clustermouseover : (e, id) => {showClusterInfo(e, id)},
+                    eventHandlers = {{ clustermouseover : (e, id) => {showClusterInfo(e)},
                                        clustermouseout  : (e, id) => {console.log(id)}
                                     }}>
-
-                    
-
 
                     {crimes.map(crime => (
                         <Marker
