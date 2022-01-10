@@ -1,0 +1,74 @@
+[
+{
+ "id": 1,
+ "location":{"latitude": -33.034105, "longitude": -71.595484},
+ "luz" : 3,
+ "temperatura": 35,
+ "humedad": 51
+},
+{
+ "id": 2,
+ "location":{"latitude": -33.034069, "longitude": -71.595317},
+ "luz" : 4,
+ "temperatura": 45,
+ "humedad": 52
+},
+{
+ "id": 3,
+ "location":{"latitude": -33.034035, "longitude": -71.595170},
+ "luz" : 5,
+ "temperatura": 55,
+ "humedad": 53
+},
+{
+ "id": 4,
+ "location":{"latitude": -33.033974, "longitude": -71.595006},
+ "luz" : 6,
+ "temperatura": 65,
+ "humedad": 54
+},
+{
+ "id": 5,
+ "location":{"latitude": -33.033916, "longitude": -71.594816},
+ "luz" : 7,
+ "temperatura": 75,
+ "humedad": 55
+},
+{
+ "id": 6,
+ "location":{"latitude": -33.033853, "longitude": -71.594620},
+ "luz" : 8,
+ "temperatura": 85,
+ "humedad": 56
+},
+{
+ "id": 7,
+ "location":{"latitude": -33.033799, "longitude": -71.594454},
+ "luz" : 9,
+ "temperatura": 75,
+ "humedad": 57
+},
+{
+ "id": 8,
+ "location":{"latitude": -33.033738, "longitude": -71.594274},
+ "luz" : 10,
+ "temperatura": 65,
+ "humedad": 58
+},
+{
+ "id": 9,
+ "location":{"latitude": -33.033671, "longitude": -71.594057},
+ "luz" : 11,
+ "temperatura": 55,
+ "humedad": 59
+},
+{
+ "id": 10,
+ "location":{"latitude": -33.033617, "longitude": -71.593831},
+ "luz" : 12,
+ "temperatura": 45,
+ "humedad": 60
+}
+]
+
+ 
