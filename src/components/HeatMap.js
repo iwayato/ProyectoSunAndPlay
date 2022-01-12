@@ -24,19 +24,19 @@ const zoom_converter = (zoomLevel) => {
         case 17:
             return 12
         case 16:
-            return 20
+            return 24
         case 15:
-            return 40
+            return 36
         case 14:
             return 60
         case 13:
             return 120
         case 12:
-            return 250
+            return 360
         case 11:
-            return 400
-        default:
             return 600
+        default:
+            return 12
     }
 }
 
@@ -50,13 +50,15 @@ const HeatMap = (props) => {
         },
     });
 
+    console.log(zoomLevel, zoom_converter(zoomLevel));
+
     return(
         <MarkerClusterGroup disableClusteringAtZoom={5} maxClusterRadius={60}>
             {props.nodos.map(nodo => (
                 <Circle
                     key={nodo.id}
                     center={[nodo.location.latitude, nodo.location.longitude]}
-                    pathOptions={{color: color_selector(nodo.temperatura), stroke : false, fillOpacity : 0.8}}
+                    pathOptions={{color: color_selector(nodo.temperatura), stroke : false, fillOpacity : 0.9}}
                     radius={zoom_converter(zoomLevel)}>
                     <Popup>
                         ID: {nodo.id} <br></br>
