@@ -2,16 +2,16 @@ import { Circle, Popup, Tooltip, useMapEvents } from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import { useState } from "react";
 
-const color_selector = (tmp) => {
+const color_selector = (hum) => {
 
-    if ((0 <= tmp) && (tmp <= 60)) {
-        return '#59ff00'
+    if ((0 <= hum) && (hum <= 53)) {
+        return '#00ffe1'
     }
-    if ((61 <= tmp) && (tmp <= 80)) {
-        return '#ffff00'
+    if ((54 <= hum) && (hum <= 57)) {
+        return '#00aeff'
     }
-    if ((81 <= tmp) && (tmp <= 100)) {
-        return '#ff3300'
+    if ((58 <= hum) && (hum <= 60)) {
+        return '#001aff'
     }
     else {
         return 'gray'
@@ -54,7 +54,7 @@ const zoom_converter = (zoomLevel) => {
     }
 }
 
-const HeatMap = (props) => {
+const HumMap = (props) => {
 
     const [zoomLevel, setZoomLevel] = useState(props.zoom); // initial zoom level provided for MapContainer
     
@@ -63,14 +63,14 @@ const HeatMap = (props) => {
             setZoomLevel(mapEvents.getZoom());
         },
     });
-
+    
     return(
         <MarkerClusterGroup disableClusteringAtZoom={13} maxClusterRadius={60} singleMarkerMode={false}>
             {props.nodos.map(nodo => (
                 <Circle  
                     key={nodo.id}
                     center={[nodo.location.latitude, nodo.location.longitude]}
-                    pathOptions={{color: color_selector(nodo.temperatura), stroke : false, fillOpacity : 1.0}}
+                    pathOptions={{color: color_selector(nodo.humedad), stroke : false, fillOpacity : 1.0}}
                     radius={zoom_converter(zoomLevel)}>
                     <Popup>
                         ID: {nodo.id} <br></br>
@@ -94,4 +94,4 @@ const HeatMap = (props) => {
     )
 }
 
-export default HeatMap;
+export default HumMap;

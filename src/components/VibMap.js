@@ -54,7 +54,7 @@ const zoom_converter = (zoomLevel) => {
     }
 }
 
-const HeatMap = (props) => {
+const VibMap = (props) => {
 
     const [zoomLevel, setZoomLevel] = useState(props.zoom); // initial zoom level provided for MapContainer
     
@@ -94,4 +94,4 @@ const HeatMap = (props) => {
     )
 }
 
-export default HeatMap;
+export default VibMap;
