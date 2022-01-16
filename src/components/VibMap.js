@@ -123,48 +123,4 @@ const VibMap = (props) => {
     )
 }
 
-{/*const VibMap = (props) => {
-
-    const [zoomLevel, setZoomLevel] = useState(props.zoom); // initial zoom level provided for MapContainer
-    
-    const mapEvents = useMapEvents({
-        zoomend: () => {
-            setZoomLevel(mapEvents.getZoom());
-        },
-    });
-
-    return(
-        <MarkerClusterGroup disableClusteringAtZoom={13} maxClusterRadius={60} singleMarkerMode={false}>
-            <BlinkingPane />
-            {props.nodos.map(nodo => (
-                <Circle  
-                    key={nodo.id}
-                    center={[nodo.location.latitude, nodo.location.longitude]}
-                    pathOptions={{color: color_selector(nodo.temperatura), stroke : false, fillOpacity : 0.5}}
-                    radius={zoom_converter(zoomLevel)}>
-                    <Popup>
-                        ID: {nodo.id} <br></br>
-                        Latitud: {nodo.location.latitude} <br></br>
-                        Longitud: {nodo.location.longitude} <br></br>
-                        Luz: {nodo.luz}<br></br>
-                        Temperatura: {nodo.temperatura}<br></br>
-                        Humedad: {nodo.humedad}<br></br>
-                        Acelerometro : {nodo.acelerometro} <br></br>
-                    </Popup>
-                    <Tooltip direction="bottom" opacity={1} sticky = {true}>
-                        ID: {nodo.id} <br></br>
-                        Latitud: {nodo.location.latitude} <br></br>
-                        Longitud: {nodo.location.longitude} <br></br>
-                        Luz: {nodo.luz}<br></br>
-                        Temperatura: {nodo.temperatura}<br></br>
-                        Humedad: {nodo.humedad}<br></br>
-                        Acelerometro : {nodo.acelerometro} <br></br>
-                    </Tooltip>
-                </Circle>
-            ))}
-        </MarkerClusterGroup>                 
-    )
-}
-*/}
-
 export default VibMap;
