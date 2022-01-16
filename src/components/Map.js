@@ -50,7 +50,7 @@ const Map = () => {
                 <LayersControl.Overlay name='Tachas instaladas' checked={true} >
                     <TachasMap nodos={info} zoom={zoom}></TachasMap>
                 </LayersControl.Overlay>
-
+                
                 <LayersControl.Overlay name='Mapa de temperatura' checked={false}>
                     <HeatMap nodos={info} zoom={zoom}></HeatMap>
                 </LayersControl.Overlay>

@@ -79,6 +79,7 @@ const HumMap = (props) => {
                         Luz: {nodo.luz}<br></br>
                         Temperatura: {nodo.temperatura}<br></br>
                         Humedad: {nodo.humedad}<br></br>
+                        Acelerometro : {nodo.acelerometro} <br></br>
                     </Popup>
                     <Tooltip direction="bottom" opacity={1} sticky = {true}>
                         ID: {nodo.id} <br></br>
@@ -87,6 +88,7 @@ const HumMap = (props) => {
                         Luz: {nodo.luz}<br></br>
                         Temperatura: {nodo.temperatura}<br></br>
                         Humedad: {nodo.humedad}<br></br>
+                        Acelerometro : {nodo.acelerometro} <br></br>
                     </Tooltip>
                 </Circle>
             ))}
