@@ -69,14 +69,14 @@ const VibMap = (props) => {
         const [render, setRender] = useState(true)
         const timerRef = useRef()
         
-        const interval = (acel) => {
-            if ((0 <= acel) && (acel <= 60)) {
+        const interval = (a) => {
+            if ((0 <= a) && (a <= 60)) {
                 return 1000
             }
-            if ((61 <= acel) && (acel <= 80)) {
+            if ((61 <= a) && (a <= 80)) {
                 return 500
             }
-            if ((81 <= acel) && (acel <= 100)) {
+            if ((81 <= a) && (a <= 100)) {
                 return 250
             }
             else {
@@ -87,7 +87,7 @@ const VibMap = (props) => {
         useEffect(() => {
             timerRef.current = setInterval(() => {setRender((r) => !r)}, interval(acel));
             return () => {clearInterval(timerRef.current)}
-        }, [])
+        },[acel])
 
         return render;
     }

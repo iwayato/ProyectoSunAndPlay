@@ -32,10 +32,6 @@ const TachasMap = (props) => {
     )
 }
 
-//eventHandlers={{mouseover : (e) => {e.target.openPopup(); },
-//mouseout  : (e) => {e.target.closePopup();}
-//}}
-
 export default TachasMap;
 
 
