@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import { MapContainer, TileLayer, LayersControl, ScaleControl, useMapEvent } from 'react-leaflet';
 import Links from './Links';
 import "leaflet.heat"
@@ -7,6 +7,7 @@ import TachasMap from './TachasMap';
 import HumMap from './HumMap';
 import VibMap from './VibMap';
 import info from './data.json';
+import db from './firebase.config';
 
 // Funcion para hacer paning de forma suave
 function SetViewOnClick() {
@@ -25,9 +26,28 @@ const Map = () => {
     const zoom = 14;
     const center = [-33.033916, -71.594816];
 
+    const [blogs, setBlogs] = useState([])
+
+    const fetchBlogs = async() => {
+      const response = db.collection('tacha-01');
+      const data = await response.get();
+      data.docs.forEach(item => {
+        setBlogs([...blogs, item.data()])
+      })
+    }
+
+    useEffect(() => {
+      fetchBlogs();
+    }, [])
+    
     return(
 
         <MapContainer center={center} zoom={zoom} minZoom={4} maxZoom={17} scrollWheelZoom={true} keyboardPanDelta={200} zoomControl={true}>
+            
+            {setInterval(() => {
+                console.log(blogs[0])
+            }, 60000)}
+
             <ScaleControl></ScaleControl>
 
             <Links></Links>
@@ -46,8 +66,6 @@ const Map = () => {
                     <VibMap nodos={info} zoom={zoom}></VibMap>
                 </LayersControl.Overlay>
 
-
-                
                 <LayersControl.Overlay name='Mapa de temperatura' checked={false}>
                     <HeatMap nodos={info} zoom={zoom}></HeatMap>
                 </LayersControl.Overlay>
