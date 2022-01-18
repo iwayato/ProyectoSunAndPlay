@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React from 'react';
 import { MapContainer, TileLayer, LayersControl, ScaleControl, useMapEvent } from 'react-leaflet';
 import Links from './Links';
 import "leaflet.heat"
@@ -7,7 +7,6 @@ import TachasMap from './TachasMap';
 import HumMap from './HumMap';
 import VibMap from './VibMap';
 import info from './data.json';
-import db from './firebase.config';
 
 // Funcion para hacer paning de forma suave
 function SetViewOnClick() {
@@ -22,34 +21,14 @@ function SetViewOnClick() {
 
 const Map = () => {
 
-    // Centro del Mapa
+    // Zoom y Centro del Mapa
     const zoom = 14;
     const center = [-33.033916, -71.594816];
 
-    const [blogs, setBlogs] = useState([])
-
-    const fetchBlogs = async() => {
-      const response = db.collection('tacha-01');
-      const data = await response.get();
-      data.docs.forEach(item => {
-        setBlogs([...blogs, item.data()])
-      })
-    }
-
-    useEffect(() => {
-      fetchBlogs();
-    }, [])
-    
     return(
 
         <MapContainer center={center} zoom={zoom} minZoom={4} maxZoom={17} scrollWheelZoom={true} keyboardPanDelta={200} zoomControl={true}>
             
-            {setInterval(() => {
-                console.log(blogs[0])
-            }, 60000)}
-
-            <ScaleControl></ScaleControl>
-
             <Links></Links>
 
             <LayersControl position='topright' collapsed={true}>
@@ -62,7 +41,11 @@ const Map = () => {
                     <TileLayer attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, under <a href="https://www.openstreetmap.org/copyright">ODbL</a>' url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"/>
                 </LayersControl.BaseLayer>
 
-                <LayersControl.Overlay name='Mapa de vibraciones' checked={true}>
+                <LayersControl.Overlay name='Mapa Tachas instaladas' checked={true} >
+                    <TachasMap nodos={info} zoom={zoom}></TachasMap>
+                </LayersControl.Overlay>
+
+                <LayersControl.Overlay name='Mapa de vibraciones' checked={false}>
                     <VibMap nodos={info} zoom={zoom}></VibMap>
                 </LayersControl.Overlay>
 
@@ -73,12 +56,10 @@ const Map = () => {
                 <LayersControl.Overlay name='Mapa de humedad' checked={false}>
                     <HumMap nodos={info} zoom={zoom}></HumMap>
                 </LayersControl.Overlay>
-
-                <LayersControl.Overlay name='Mapa Tachas instaladas' checked={false} >
-                    <TachasMap nodos={info} zoom={zoom}></TachasMap>
-                </LayersControl.Overlay>
                 
             </LayersControl>
+
+            <ScaleControl></ScaleControl>
 
             <SetViewOnClick/>
 
