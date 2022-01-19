@@ -6,7 +6,6 @@ import HeatMap from './HeatMap';
 import TachasMap from './TachasMap';
 import HumMap from './HumMap';
 import VibMap from './VibMap';
-import info from './data.json';
 
 // Funcion para hacer paning de forma suave
 function SetViewOnClick() {
@@ -19,7 +18,7 @@ function SetViewOnClick() {
     return null
 }
 
-const Map = () => {
+const Map = (props) => {
 
     // Zoom y Centro del Mapa
     const zoom = 14;
@@ -42,19 +41,19 @@ const Map = () => {
                 </LayersControl.BaseLayer>
 
                 <LayersControl.Overlay name='Mapa Tachas instaladas' checked={true} >
-                    <TachasMap nodos={info} zoom={zoom}></TachasMap>
+                    <TachasMap nodos={props.infoTachas}></TachasMap>
                 </LayersControl.Overlay>
 
                 <LayersControl.Overlay name='Mapa de vibraciones' checked={false}>
-                    <VibMap nodos={info} zoom={zoom}></VibMap>
+                    <VibMap nodos={props.infoTachas} zoom={zoom}></VibMap>
                 </LayersControl.Overlay>
 
                 <LayersControl.Overlay name='Mapa de temperatura' checked={false}>
-                    <HeatMap nodos={info} zoom={zoom}></HeatMap>
+                    <HeatMap nodos={props.infoTachas} zoom={zoom}></HeatMap>
                 </LayersControl.Overlay>
 
                 <LayersControl.Overlay name='Mapa de humedad' checked={false}>
-                    <HumMap nodos={info} zoom={zoom}></HumMap>
+                    <HumMap nodos={props.infoTachas} zoom={zoom}></HumMap>
                 </LayersControl.Overlay>
                 
             </LayersControl>
