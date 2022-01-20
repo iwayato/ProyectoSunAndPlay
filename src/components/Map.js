@@ -2,10 +2,10 @@ import React from 'react';
 import { MapContainer, TileLayer, LayersControl, ScaleControl, useMapEvent } from 'react-leaflet';
 import Links from './Links';
 import "leaflet.heat"
-//import HeatMap from './HeatMap';
+import HeatMap from './HeatMap';
 import TachasMap from './TachasMap';
-//import HumMap from './HumMap';
-//import VibMap from './VibMap';
+import HumMap from './HumMap';
+import VibMap from './VibMap';
 
 // Funcion para hacer paning de forma suave
 function SetViewOnClick() {
@@ -45,7 +45,7 @@ const Map = (props) => {
                 <LayersControl.Overlay name='Mapa Tachas instaladas' checked={true} >
                     <TachasMap nodos={props.infoTachas}></TachasMap>
                 </LayersControl.Overlay>
-                {/*
+                
                 <LayersControl.Overlay name='Mapa de vibraciones' checked={false}>
                     <VibMap nodos={props.infoTachas} zoom={zoom}></VibMap>
                 </LayersControl.Overlay>
@@ -57,7 +57,6 @@ const Map = (props) => {
                 <LayersControl.Overlay name='Mapa de humedad' checked={false}>
                     <HumMap nodos={props.infoTachas} zoom={zoom}></HumMap>
                 </LayersControl.Overlay>
-                */}
                 
             </LayersControl>
 
@@ -69,4 +68,5 @@ const Map = (props) => {
 
     );
 };
+
 export default Map;

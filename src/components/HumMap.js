@@ -69,13 +69,13 @@ const HumMap = (props) => {
             {props.nodos.map(nodo => (
                 <Circle  
                     key={nodo.id}
-                    center={[nodo.location.latitude, nodo.location.longitude]}
+                    center={[nodo.latitud, nodo.longitud]}
                     pathOptions={{color: color_selector(nodo.humedad), stroke : false, fillOpacity : 1.0}}
                     radius={zoom_converter(zoomLevel)}>
                     <Popup>
                         ID: {nodo.id} <br></br>
-                        Latitud: {nodo.location.latitude} <br></br>
-                        Longitud: {nodo.location.longitude} <br></br>
+                        Latitud: {nodo.latitud} <br></br>
+                        Longitud: {nodo.longitud} <br></br>
                         Luz: {nodo.luz}<br></br>
                         Temperatura: {nodo.temperatura}<br></br>
                         Humedad: {nodo.humedad}<br></br>
@@ -83,8 +83,8 @@ const HumMap = (props) => {
                     </Popup>
                     <Tooltip direction="bottom" opacity={1} sticky = {true}>
                         ID: {nodo.id} <br></br>
-                        Latitud: {nodo.location.latitude} <br></br>
-                        Longitud: {nodo.location.longitude} <br></br>
+                        Latitud: {nodo.latitud} <br></br>
+                        Longitud: {nodo.longitud} <br></br>
                         Luz: {nodo.luz}<br></br>
                         Temperatura: {nodo.temperatura}<br></br>
                         Humedad: {nodo.humedad}<br></br>

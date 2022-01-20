@@ -64,61 +64,34 @@ const VibMap = (props) => {
         },
     });
 
-    const SetBlink = (acel) => {
-
-        const [render, setRender] = useState(true)
-        const timerRef = useRef()
-        
-        const interval = (a) => {
-            if ((0 <= a) && (a <= 60)) {
-                return 1000
-            }
-            if ((61 <= a) && (a <= 80)) {
-                return 500
-            }
-            if ((81 <= a) && (a <= 100)) {
-                return 250
-            }
-            else {
-                return 1000
-            }
-        }
-
-        useEffect(() => {
-            timerRef.current = setInterval(() => {setRender((r) => !r)}, interval(acel));
-            return () => {clearInterval(timerRef.current)}
-        },[acel])
-
-        return render;
-    }
-
     return(
         <MarkerClusterGroup disableClusteringAtZoom={13} maxClusterRadius={60} singleMarkerMode={false}>
-            {props.nodos.map(nodo => ( SetBlink(nodo.acelerometro) ? (
+            {props.nodos.map(nodo => (
                 <Circle  
-                key={nodo.id}
-                center={[nodo.location.latitude, nodo.location.longitude]}
-                pathOptions={{color: color_selector(nodo.acelerometro), stroke : false, fillOpacity : 0.9}}
-                radius={zoom_converter(zoomLevel)}>
-                <Popup>
-                    ID: {nodo.id} <br></br>
-                    Latitud: {nodo.location.latitude} <br></br>
-                    Longitud: {nodo.location.longitude} <br></br>
-                    Luz: {nodo.luz}<br></br>
-                    Temperatura: {nodo.temperatura}<br></br>
-                    Humedad: {nodo.humedad}<br></br>
-                    Acelerometro : {nodo.acelerometro} <br></br>
-                </Popup>
-                <Tooltip direction="bottom" opacity={1} sticky = {true}>
-                    ID: {nodo.id} <br></br>
-                    Latitud: {nodo.location.latitude} <br></br>
-                    Longitud: {nodo.location.longitude} <br></br>
-                    Luz: {nodo.luz}<br></br>
-                    Temperatura: {nodo.temperatura}<br></br>
-                    Humedad: {nodo.humedad}<br></br>
-                    Acelerometro : {nodo.acelerometro} <br></br>
-                </Tooltip>
-            </Circle>) : null ))}
+                    key={nodo.id}
+                    center={[nodo.latitud, nodo.longitud]}
+                    pathOptions={{color: color_selector(nodo.acelerometro), stroke : false, fillOpacity : 0.9}}
+                    radius={zoom_converter(zoomLevel)}>
+                    <Popup>
+                        ID: {nodo.id} <br></br>
+                        Latitud: {nodo.latitud} <br></br>
+                        Longitud: {nodo.longitud} <br></br>
+                        Luz: {nodo.luz}<br></br>
+                        Temperatura: {nodo.temperatura}<br></br>
+                        Humedad: {nodo.humedad}<br></br>
+                        Acelerometro : {nodo.acelerometro} <br></br>
+                    </Popup>
+                    <Tooltip direction="bottom" opacity={1} sticky = {true}>
+                        ID: {nodo.id} <br></br>
+                        Latitud: {nodo.latitud} <br></br>
+                        Longitud: {nodo.longitud} <br></br>
+                        Luz: {nodo.luz}<br></br>
+                        Temperatura: {nodo.temperatura}<br></br>
+                        Humedad: {nodo.humedad}<br></br>
+                        Acelerometro : {nodo.acelerometro} <br></br>
+                    </Tooltip>
+                </Circle>
+            ))}
         </MarkerClusterGroup>  
     )
 }
