@@ -1,6 +1,7 @@
 import { Circle, Popup, Tooltip, useMapEvents } from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-markercluster";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
+//import { useRef, useEffect } from "react";
 
 const color_selector = (tmp) => {
 

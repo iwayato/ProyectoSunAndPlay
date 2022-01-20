@@ -84,3 +84,35 @@ const SetBlink = (acel) => {
                     Acelerometro : {nodo.acelerometro} <br></br>
                 </Tooltip>
             </Circle>) : null ))}
+
+
+
+fetch(url, {
+  method: 'POST',
+  mode: 'no-cors',
+  redirect: 'follow',
+  headers: new Headers({ 
+          'Content-Type': "application/json", 
+          'Grpc-Metadata-Authorization': "Bearer " + token, 
+  }),
+  body: JSON.stringify(body) 
+}).then(() => console.log('Se envió información por http'));
+
+
+const options = {
+  hostname: "hook.in",
+  port: 443,
+  path: "/1gmZlwZybZfd6NOO6q89",
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Content-Length": body.length
+  }
+}
+
+const req = https.request(options, (res) => {
+  console.log(`status: ${res.statusCode}`);
+});
+
+req.write(body);
+req.end();
