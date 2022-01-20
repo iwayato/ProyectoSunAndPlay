@@ -1,35 +1,28 @@
 import './App.css';
 import Map from './components/Map';
-import React, { useState } from 'react';
-//import useSwr from "swr";
-//import { useEffect, useRef } from 'react';
+import React from 'react';
+//import { useEffect, useState, useRef } from 'react';
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, onValue } from "firebase/database";
+import firebaseConfig from './components/firebaseConfig';
 
-{/* 
-const [infoTachas, setinfoTachas] = useState([]);
-const fetcher = (...args) => fetch(...args).then(response => response.json());
-const { data, error } = useSwr(url, { fetcher });
-setinfoTachas([data && !error ? data.slice(0, 100) : []])
-*/}
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const dbRef = ref(db, 'data/');
 
 function App() {
 
-  const [infoTachas, setinfoTachas] = useState([]);
-  const url = 'https://tachasweb-default-rtdb.firebaseio.com/data.json?print=pretty';
+  onValue(dbRef, (snapshot) => {
+    const data = snapshot.val();
+  });
 
-  async function retrieveData(){
-      const response = await fetch(url);
-      const data = await response.json();
-      setinfoTachas([data]);
-  }
-
-  retrieveData();
-
-  setInterval(retrieveData, 5000);
+  console.log(data);
 
   return(
-    <Map infoTachas={infoTachas}></Map>
+    //infoTachas debe contener una lista con los objetos que corresponden a los datos de cada tacha
+    //<Map infoTachas={data}></Map>
+    null
   );
-
 }
 
 export default App;
