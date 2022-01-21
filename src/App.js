@@ -5,23 +5,6 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
 import firebaseConfig from './components/firebaseConfig';
 
-const url1 = 'http://3.90.212.240:8080/api/devices/2cf7f1203230a466/queue';
-const url2 = 'https://hookb.in/LgQ3JpOMBxI18Vqq8OeX';
-const body = JSON.stringify({ "deviceQueueItem": {"confirmed": true, "data": "AQ==", "devEUI": "2cf7f1203230a466", "fCnt": 0, "fPort": 3} });
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5X2lkIjoiNDExMzkxZDItMGY0ZC00MTAzLTkwZjAtNDE1NTQ0ZjA4YTljIiwiYXVkIjoiYXMiLCJpc3MiOiJhcyIsIm5iZiI6MTY0MjYxNjIwMCwic3ViIjoiYXBpX2tleSJ9._a7OBvSyrw0z-Gdo36W2SgjoVfe5syE2ZgKsl-13qes";
-
-fetch(url1, {
-  method: 'POST',
-  mode: 'no-cors',
-  redirect: 'follow',
-  headers: new Headers({ 
-          'Content-Type': "application/json", 
-          'Grpc-Metadata-Authorization': "Bearer " + token,
-          'Content-Length': body.length 
-  }),
-  body: body,
-}).then(() => console.log('Se envió información por http'));
-
 class App extends Component {
 
   constructor(props) {
