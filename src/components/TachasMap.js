@@ -3,15 +3,13 @@ import { Marker, Popup, Tooltip } from "react-leaflet";
 
 const TachasMap = (props) => {
 
-    console.log("Lo que llega a TachasMap.js", props.nodos);
-
     return(
         <MarkerClusterGroup disableClusteringAtZoom={13} maxClusterRadius={60} singleMarkerMode={false}>
             {props.nodos.map(nodo => (
             <Marker
                 key={nodo.id}
                 position={[nodo.latitud, nodo.longitud]}>
-                <Popup>
+                <Popup closeOnClick={false}>
                     ID: {nodo.id} <br></br>
                     Latitud: {nodo.latitud} <br></br>
                     Longitud: {nodo.longitud} <br></br>

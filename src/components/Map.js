@@ -24,15 +24,13 @@ const Map = (props) => {
     const zoom = 14;
     const center = [-33.033916, -71.594816];
 
-    console.log("Lo que llega a Map.js", props.infoTachas);
-
     return(
 
         <MapContainer center={center} zoom={zoom} minZoom={4} maxZoom={17} scrollWheelZoom={true} keyboardPanDelta={200} zoomControl={true}>
         
             <Links></Links>
 
-            <LayersControl position='topright' collapsed={true}>
+            <LayersControl position='topright' collapsed={false}>
 
                 <LayersControl.BaseLayer name = 'Standart Map' checked = {true}>
                     <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>

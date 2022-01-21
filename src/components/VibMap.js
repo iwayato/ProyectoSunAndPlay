@@ -73,7 +73,7 @@ const VibMap = (props) => {
                     center={[nodo.latitud, nodo.longitud]}
                     pathOptions={{color: color_selector(nodo.acelerometro), stroke : false, fillOpacity : 0.9}}
                     radius={zoom_converter(zoomLevel)}>
-                    <Popup>
+                    <Popup closeOnClick={false}>
                         ID: {nodo.id} <br></br>
                         Latitud: {nodo.latitud} <br></br>
                         Longitud: {nodo.longitud} <br></br>
