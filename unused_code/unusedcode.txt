@@ -134,3 +134,6 @@ fetch(url1, {
   },
   body: body,
 }).then(() => console.log('Se envió información por http'));
+
+
+'Grpc-Metadata-Authorization': 'Bearer ' + token,
