@@ -30,7 +30,7 @@ const Map = (props) => {
         
             <Links></Links>
 
-            <LayersControl position='topright' collapsed={false}>
+            <LayersControl position='topright' collapsed={true}>
 
                 <LayersControl.BaseLayer name = 'Standart Map' checked = {true}>
                     <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
@@ -40,16 +40,16 @@ const Map = (props) => {
                     <TileLayer attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, under <a href="https://www.openstreetmap.org/copyright">ODbL</a>' url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"/>
                 </LayersControl.BaseLayer>
 
-                <LayersControl.Overlay name='Mapa Tachas instaladas' checked={true} >
+                <LayersControl.Overlay name='Mapa tachas instaladas' checked={true} >
                     <TachasMap nodos={props.infoTachas}></TachasMap>
-                </LayersControl.Overlay>
-                
-                <LayersControl.Overlay name='Mapa de vibraciones' checked={false}>
-                    <VibMap nodos={props.infoTachas} zoom={zoom}></VibMap>
                 </LayersControl.Overlay>
 
                 <LayersControl.Overlay name='Mapa de temperatura' checked={false}>
                     <HeatMap nodos={props.infoTachas} zoom={zoom}></HeatMap>
+                </LayersControl.Overlay>
+
+                <LayersControl.Overlay name='Mapa de vibraciones' checked={false}>
+                    <VibMap nodos={props.infoTachas} zoom={zoom}></VibMap>
                 </LayersControl.Overlay>
 
                 <LayersControl.Overlay name='Mapa de humedad' checked={false}>

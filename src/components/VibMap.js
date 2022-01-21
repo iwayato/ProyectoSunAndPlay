@@ -1,17 +1,16 @@
 import { Circle, Popup, Tooltip, useMapEvents } from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import { useState } from "react";
-//import { useRef, useEffect } from "react";
 
-const color_selector = (tmp) => {
+const color_selector = (acel) => {
 
-    if ((0 <= tmp) && (tmp <= 60)) {
+    if ((0 <= acel) && (acel <= 60)) {
         return '#ff3300'
     }
-    if ((61 <= tmp) && (tmp <= 80)) {
+    if ((61 <= acel) && (acel <= 80)) {
         return '#ffff00'
     }
-    if ((81 <= tmp) && (tmp <= 100)) {
+    if ((81 <= acel) && (acel <= 100)) {
         return '#59ff00'
     }
     else {
@@ -71,7 +70,7 @@ const VibMap = (props) => {
                 <Circle  
                     key={nodo.id}
                     center={[nodo.latitud, nodo.longitud]}
-                    pathOptions={{color: color_selector(nodo.acelerometro), stroke : false, fillOpacity : 0.9}}
+                    pathOptions={{color: color_selector(nodo.acelerometro), stroke : true, fillOpacity : 0.5, weight: 3}}
                     radius={zoom_converter(zoomLevel)}>
                     <Popup closeOnClick={false}>
                         ID: {nodo.id} <br></br>

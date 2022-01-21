@@ -67,7 +67,7 @@ const HeatMap = (props) => {
     return(
         <MarkerClusterGroup disableClusteringAtZoom={13} maxClusterRadius={60} singleMarkerMode={false}>
             {props.nodos.map(nodo => (
-                <Circle  
+                <Circle
                     key={nodo.id}
                     center={[nodo.latitud, nodo.longitud]}
                     pathOptions={{color: color_selector(nodo.temperatura), stroke : false, fillOpacity : 1.0}}
