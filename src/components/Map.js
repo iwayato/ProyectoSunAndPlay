@@ -20,6 +20,10 @@ function SetViewOnClick() {
 
 const Map = (props) => {
 
+    props.infoTachas.forEach(tacha => {
+        tacha.location = props.locations[tacha.id - 1]
+    });
+
     // Zoom y Centro del Mapa
     const zoom = 14;
     const center = [-33.033916, -71.594816];
@@ -30,7 +34,7 @@ const Map = (props) => {
         
             <Links></Links>
 
-            <LayersControl position='topright' collapsed={true}>
+            <LayersControl position='topright' collapsed={false}>
 
                 <LayersControl.BaseLayer name = 'Standart Map' checked = {true}>
                     <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
@@ -41,19 +45,19 @@ const Map = (props) => {
                 </LayersControl.BaseLayer>
 
                 <LayersControl.Overlay name='Mapa tachas instaladas' checked={true} >
-                    <TachasMap nodos={props.infoTachas}></TachasMap>
+                    <TachasMap infoTachas={props.infoTachas}></TachasMap>
                 </LayersControl.Overlay>
-
+                
                 <LayersControl.Overlay name='Mapa de temperatura' checked={false}>
-                    <HeatMap nodos={props.infoTachas} zoom={zoom}></HeatMap>
+                    <HeatMap infoTachas={props.infoTachas} zoom={zoom}></HeatMap>
                 </LayersControl.Overlay>
 
                 <LayersControl.Overlay name='Mapa de vibraciones' checked={false}>
-                    <VibMap nodos={props.infoTachas} zoom={zoom}></VibMap>
+                    <VibMap infoTachas={props.infoTachas} zoom={zoom}></VibMap>
                 </LayersControl.Overlay>
 
                 <LayersControl.Overlay name='Mapa de humedad' checked={false}>
-                    <HumMap nodos={props.infoTachas} zoom={zoom}></HumMap>
+                    <HumMap infoTachas={props.infoTachas} zoom={zoom}></HumMap>
                 </LayersControl.Overlay>
                 
             </LayersControl>

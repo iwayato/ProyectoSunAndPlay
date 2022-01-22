@@ -5,29 +5,29 @@ const TachasMap = (props) => {
 
     return(
         <MarkerClusterGroup disableClusteringAtZoom={13} maxClusterRadius={60} singleMarkerMode={false}>
-            {props.nodos.map(nodo => (
-            <Marker
-                key={nodo.id}
-                position={[nodo.latitud, nodo.longitud]}>
-                <Popup closeOnClick={false}>
-                    ID: {nodo.id} <br></br>
-                    Latitud: {nodo.latitud} <br></br>
-                    Longitud: {nodo.longitud} <br></br>
-                    Luz: {nodo.luz}<br></br>
-                    Temperatura: {nodo.temperatura}<br></br>
-                    Humedad: {nodo.humedad}<br></br>
-                    Acelerometro : {nodo.acelerometro} <br></br>
-                </Popup>
-                <Tooltip direction="bottom" opacity={1} sticky = {true}>
-                    ID: {nodo.id} <br></br>
-                    Latitud: {nodo.latitud} <br></br>
-                    Longitud: {nodo.longitud} <br></br>
-                    Luz: {nodo.luz}<br></br>
-                    Temperatura: {nodo.temperatura}<br></br>
-                    Humedad: {nodo.humedad}<br></br>
-                    Acelerometro : {nodo.acelerometro} <br></br>
-                </Tooltip>
-            </Marker>
+            {props.infoTachas.map(tacha => (
+                <Marker
+                    key={tacha.id}
+                    position={[tacha.location.latitud, tacha.location.longitud]}>
+                    <Popup closeOnClick={false}>
+                        ID: {tacha.id} <br></br>
+                        Latitud: {tacha.location.latitud} <br></br>
+                        Longitud: {tacha.location.longitud} <br></br>
+                        Luz: {tacha.luz}<br></br>
+                        Temperatura: {tacha.temperatura}<br></br>
+                        Humedad: {tacha.humedad}<br></br>
+                        Acelerometro : {tacha.acelerometro} <br></br>
+                    </Popup>
+                    <Tooltip direction="bottom" opacity={1} sticky = {true}>
+                        ID: {tacha.id} <br></br>
+                        Latitud: {tacha.location.latitud} <br></br>
+                        Longitud: {tacha.location.longitud} <br></br>
+                        Luz: {tacha.luz}<br></br>
+                        Temperatura: {tacha.temperatura}<br></br>
+                        Humedad: {tacha.humedad}<br></br>
+                        Acelerometro : {tacha.acelerometro} <br></br>
+                    </Tooltip>
+                </Marker>
         ))};
         </MarkerClusterGroup>
     )
