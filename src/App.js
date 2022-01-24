@@ -5,6 +5,20 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
 import firebaseConfig from './components/firebaseConfig';
 
+const url = 'https://54.221.23.13:8080/api/devices/2cf7f1203230a466/queue';
+const body = JSON.stringify( { "deviceQueueItem": {"confirmed": true, "data": "Ag==", "devEUI": "2cf7f1203230a466", "fCnt": 0, "fPort": 3} } );
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5X2lkIjoiNDExMzkxZDItMGY0ZC00MTAzLTkwZjAtNDE1NTQ0ZjA4YTljIiwiYXVkIjoiYXMiLCJpc3MiOiJhcyIsIm5iZiI6MTY0MjYxNjIwMCwic3ViIjoiYXBpX2tleSJ9._a7OBvSyrw0z-Gdo36W2SgjoVfe5syE2ZgKsl-13qes";
+
+fetch(url, {
+  method: 'POST',
+  mode: 'cors',
+  headers: {
+    'content-type': "application/json", 
+    'grpc-metadata-authorization': "Bearer " + token
+  },
+  body: body,
+}).then(() => console.log('Se envió información por http'));
+
 class App extends Component {
 
   constructor(props) {
