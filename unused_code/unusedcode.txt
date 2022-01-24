@@ -156,3 +156,36 @@ fetch(url, {
   .catch(error => console.error('Error:', error))
   .then(response => console.log('Success:', response));     
 */}
+
+// Bloque de código para comunicarse con ChirpStack mediante POST request
+{/*
+const url = 'https://3.214.124.46:8080/api/devices/2cf7f1203230a466/queue';
+const url2 = 'https://hookb.in/yDZN7Oz6aKCG9yjj9zOV';
+const body = JSON.stringify({
+                              "deviceQueueItem": 
+                                {
+                                  "confirmed": true, 
+                                  "data": "Ag==", 
+                                  "devEUI": "2cf7f1203230a466", 
+                                  "fCnt": 0, "fPort": 3
+                                }
+                            });
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5X2lkIjoiNDExMzkxZDItMGY0ZC00MTAzLTkwZjAtNDE1NTQ0ZjA4YTljIiwiYXVkIjoiYXMiLCJpc3MiOiJhcyIsIm5iZiI6MTY0MjYxNjIwMCwic3ViIjoiYXBpX2tleSJ9._a7OBvSyrw0z-Gdo36W2SgjoVfe5syE2ZgKsl-13qes";
+
+fetch(url, {
+  method: "POST",
+  body: body,
+  headers: 
+    {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
+      "Grpc-Metadata-Authorization": "Bearer " + token,
+    }
+}).then((response) => response.json())
+.then((data) => {
+  console.log('Success:', data);
+}) 
+.catch((error) => {
+  console.log('Error:', error);
+})
+*/}
