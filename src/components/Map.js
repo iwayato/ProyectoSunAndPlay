@@ -6,6 +6,7 @@ import HeatMap from './HeatMap';
 import TachasMap from './TachasMap';
 import HumMap from './HumMap';
 import VibMap from './VibMap';
+import '../Map.css';
 
 // Funcion para hacer paning de forma suave
 function SetViewOnClick() {
@@ -34,7 +35,7 @@ const Map = (props) => {
         
             <Links></Links>
 
-            <LayersControl position='topright' collapsed={false}>
+            <LayersControl position='topright' collapsed={true} className="Map">
 
                 <LayersControl.BaseLayer name = 'Standart Map' checked = {true}>
                     <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
