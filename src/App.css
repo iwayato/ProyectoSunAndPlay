@@ -31,10 +31,8 @@
 }
 
 .leaflet-container {
-  width: 90%;
-  height: 100vh;
-  margin-left: 10%;
-  margin-top: -47px;
+  width: 100%;  
+  height: 95vh;
 }
 
 html {
@@ -53,11 +51,6 @@ h1 {
   margin-left: 0;
   margin-right: 0;
   -webkit-font-smoothing: antialiased;
-}
-
-button {
-  margin-left: 25px;
-  margin-top: 25px;
 }
 
 @keyframes App-logo-spin {

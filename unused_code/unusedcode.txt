@@ -159,8 +159,7 @@ fetch(url, {
 
 // Bloque de código para comunicarse con ChirpStack mediante POST request
 {/*
-const url = 'https://3.214.124.46:8080/api/devices/2cf7f1203230a466/queue';
-const url2 = 'https://hookb.in/yDZN7Oz6aKCG9yjj9zOV';
+const url = 'https://sunandchirpstack.ddns.net:8080/api/devices/2cf7f1203230a466/queue';
 const body = JSON.stringify({
                               "deviceQueueItem": 
                                 {
@@ -177,7 +176,6 @@ fetch(url, {
   body: body,
   headers: 
     {
-      "Access-Control-Allow-Origin": "*",
       "Content-Type": "application/json",
       "Grpc-Metadata-Authorization": "Bearer " + token,
     }
@@ -189,3 +187,24 @@ fetch(url, {
   console.log('Error:', error);
 })
 */}
+
+
+
+function colorTacha (color) {
+    
+    switch (color) 
+    {
+        case 'gray':
+            setColor('green')
+            break;
+        case 'green':
+            setColor('yellow')
+            break;
+        case 'yellow':
+            setColor('red')
+            break;
+        default:
+            setColor('green')
+            break;
+    }
+}

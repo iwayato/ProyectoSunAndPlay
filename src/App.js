@@ -11,7 +11,8 @@ class App extends Component {
     super(props);
     this.state = {
       data : [],
-      locations : []
+      locations : [],
+      color : []
     }
   };
 
@@ -21,6 +22,7 @@ class App extends Component {
     const db = getDatabase(app);
     const dbRef = ref(db, 'data/');
     const dbloc = ref(db, 'locations/');
+    const dbColor = ref(db, 'downlink/');
 
     //onValue se actualiza cada vez que algun dato cambia en la base de datos de RealTime Database
 
@@ -33,6 +35,29 @@ class App extends Component {
           latitud: dataVal.latitud,
           longitud: dataVal.longitud})});
       this.setState({ locations: loc })
+    });
+
+    //Para los colores de las luces de las tachas
+    onValue(dbColor, (snapshot) => {
+      let colorList =[];
+      snapshot.forEach(data => {
+        const dataVal = data.val()
+        let colorTacha = '';
+        if (dataVal.color === "0") {
+          colorTacha = 'gray';
+        }
+        else if (dataVal.color === "G") {
+          colorTacha = 'green';
+        }
+        else if (dataVal.color === "Y") {
+          colorTacha = 'yellow';
+        }
+        else if (dataVal.color === "R") {
+          colorTacha = 'red';
+        }
+        colorList.push({
+          color: colorTacha})});
+      this.setState({ color: colorList })
     });
 
     //Para los datos de las tachas
@@ -48,12 +73,11 @@ class App extends Component {
           luz: dataVal.luz})});
       this.setState({ data: newData })
     });
-
   }
 
   render(){
       return(
-        <Map infoTachas={this.state.data} locations={this.state.locations}></Map>
+        <Map infoTachas={this.state.data} locations={this.state.locations} color={this.state.color}></Map>
       );
   }
 }

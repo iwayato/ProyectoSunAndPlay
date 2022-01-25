@@ -51,11 +51,11 @@ const ColorTacha = (props) => {
     return(
         
         <MarkerClusterGroup disableClusteringAtZoom={13} maxClusterRadius={60} singleMarkerMode={false}>
-            {props.infoTachas.map(tacha => (
-                <Circle
+            {props.infoTachas.map(tacha => ( 
+               <Circle
                     key={tacha.id}
                     center={[tacha.location.latitud, tacha.location.longitud]}
-                    pathOptions={{color: props.color, stroke : false, fillOpacity : 1}}
+                    pathOptions={{color: tacha.color.color, stroke : false, fillOpacity : 1}}
                     radius={zoom_converter(zoomLevel)}>
                     <Popup closeOnClick={false}>
                         ID: {tacha.id} <br></br>
