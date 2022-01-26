@@ -241,3 +241,10 @@ internalServiceClient.login(loginRequest, (error, response) => {
     // e.g.
     // deviceServiceClient.create(createDeviceRequest, metadata, callback);
 });
+
+
+lista.forEach(id => {
+    set(ref(db, 'downlink/' + id), {
+        color : color
+    });
+}) 
