@@ -93,6 +93,64 @@ const Map = (props) => {
 
         <div>
 
+            <div>
+
+                <input
+                    placeholder='Selecciona tachas' 
+                    type='text' 
+                    name='tachas_sel'
+                    value={tachasList}
+                    onChange={tachasListHandler}
+                >       
+                </input><br></br>
+
+                <label>
+                    Apagado
+                    <input
+                        type='checkbox'
+                        name='apagado'
+                        onChange={setApagadoHandler}
+                    >
+                    </input>
+                </label><br></br>
+
+                <label>
+                    Verde
+                    <input 
+                        type='checkbox'
+                        name='color_verde'
+                        onChange={setVerdeHandler}
+                    >
+                    </input>
+                </label><br></br>
+
+                <label>
+                    Amarillo
+                    <input 
+                        type='checkbox' 
+                        name='color_amarillo'
+                        onChange={setAmarilloHandler}
+                    > 
+                    </input>
+                </label><br></br>
+
+                <label>
+                    Rojo
+                    <input 
+                        type='checkbox' 
+                        name='color_rojo'
+                        onChange={setRojoHandler}
+                    >   
+                    </input>
+                </label><br></br>
+
+                <button onClick={(e) => {
+                    e.preventDefault()
+                    Submit(tachasList, apagado, verde, amarillo, rojo)
+                }}>Enviar</button>
+
+            </div>
+
             <MapContainer center={center} zoom={zoom} minZoom={4} maxZoom={17} scrollWheelZoom={true} keyboardPanDelta={200} zoomControl={true}>
             
                 <Links></Links>
@@ -134,60 +192,6 @@ const Map = (props) => {
                 <SetViewOnClick></SetViewOnClick>
 
             </MapContainer>
-
-            <input
-                placeholder='Selecciona tachas' 
-                type='text' 
-                name='tachas_sel'
-                value={tachasList}
-                onChange={tachasListHandler}
-            >       
-            </input>
-
-            <label>
-                Apagado
-                <input
-                    type='checkbox'
-                    name='apagado'
-                    onChange={setApagadoHandler}
-                >
-                </input>
-            </label>
-
-            <label>
-                Verde
-                <input 
-                    type='checkbox'
-                    name='color_verde'
-                    onChange={setVerdeHandler}
-                >
-                </input>
-            </label>
-
-            <label>
-                Amarillo
-                <input 
-                    type='checkbox' 
-                    name='color_amarillo'
-                    onChange={setAmarilloHandler}
-                > 
-                </input>
-            </label>
-
-            <label>
-                Rojo
-                <input 
-                    type='checkbox' 
-                    name='color_rojo'
-                    onChange={setRojoHandler}
-                >   
-                </input>
-            </label>
-
-            <button onClick={(e) => {
-                e.preventDefault()
-                Submit(tachasList, apagado, verde, amarillo, rojo)
-            }}>Enviar</button>
 
         </div>
 
