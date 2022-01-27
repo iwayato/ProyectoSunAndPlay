@@ -2,9 +2,22 @@ import { useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set } from "firebase/database";
 import firebaseConfig from './firebaseConfig';
+import classes from './SetLuzCard.module.css';
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+
+function DisplayAlert() {
+    var newLine = "\r\n"
+    var msg = "Los datos ingresados son incorrectos:"
+    msg += newLine;
+    msg += "-> Las ids ingresadas no son números válidos";
+    msg += newLine;
+    msg += "-> Los rangos no son correctos (deben ser de menor a mayor)";
+    msg += newLine;
+    msg += "-> No hay un color seleccionado o hay más de uno";
+    alert(msg);
+};
 
 const checkForNums = (array, off, v, a, r) => {
 
@@ -61,8 +74,6 @@ const Submit = (l, off, v, a, r) => {
 
     if (checkForNums(l, off, v, a, r)) {
 
-        console.log('check exitoso');
-
         let color = "";
 
         if (off) {
@@ -103,7 +114,7 @@ const Submit = (l, off, v, a, r) => {
 
     }
     else{
-        alert('Los datos ingresados son incorrectos:' + '\r\n' + '-> Las ids ingresadas no son números válidos' + '\r\n' + '-> Los rangos no son correctos (deben ser de menor a mayor)' + '\r\n' + '-> No hay un color seleccionado o hay más de uno');
+        DisplayAlert();
     }
 };
 
@@ -137,7 +148,7 @@ const SetLuzCard = () => {
 
     return(
 
-        <div>
+        <div className={classes.card}>
 
             <input
                 placeholder='Selecciona tachas' 

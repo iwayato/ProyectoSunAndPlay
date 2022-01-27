@@ -8,6 +8,8 @@ import HumMap from './HumMap';
 import VibMap from './VibMap';
 import ColorTacha from './ColorTachas';
 import SetLuzCard from './SetLuzCard';
+import classes from './Map.module.css';
+
 
 // Zoom y Centro del Mapa
 const zoom = 14;
@@ -33,11 +35,11 @@ const Map = (props) => {
 
     return(
 
-        <div>
+        <div className={classes.mapbox}>
 
             <SetLuzCard></SetLuzCard>
 
-            <MapContainer center={center} zoom={zoom} minZoom={4} maxZoom={17} scrollWheelZoom={true} keyboardPanDelta={200} zoomControl={true}>
+            <MapContainer className='mapbox' center={center} zoom={zoom} minZoom={4} maxZoom={17} scrollWheelZoom={true} keyboardPanDelta={200} zoomControl={true}>
             
                 <Links></Links>
 
