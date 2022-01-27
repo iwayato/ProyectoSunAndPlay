@@ -6,23 +6,49 @@ import firebaseConfig from './firebaseConfig';
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-const checkForNums = (array) => {
+const checkForNums = (array, off, v, a, r) => {
 
-    if (array[0] === undefined || array[0] === '') {
-        console.log('primer filtro')
+    let m0 = !off && !v && !a && r;
+    let m1 = !off && !v && a && !r;
+    let m2 = !off && v && !a && !r;
+    let m3 = off && !v && !a && !r;
+
+    if (array[0] === undefined || array[0] === '' || array[0] === ',') {
+        return false;
+    }
+
+    else if (!(m0 || m1 || m2 || m3)) {
         return false;
     }
 
     else {
 
-        console.log('Segundo filtro')
-
-        let flag = false;
+        let flag = true;
 
         array[0].split(',').forEach(item => {
-            if (typeof(Number(item)) === 'number' && !isNaN(Number(item))) {
-                console.log('if segundo filtro')
-                flag = true;
+
+            let ids = [];  
+            let rangos = item.split('-')   
+            let rango_inf = Number(rangos[0]);
+            let rango_sup = Number(rangos[1]);
+            let margen = rango_sup - rango_inf;
+
+            if (rangos.length === 1) {
+                ids.push(rangos[0]);
+                if (!((typeof(Number(ids[0])) === 'number') && (!isNaN(Number(ids[0]))))) {
+                    flag = false;
+                }
+            }
+            else if (isNaN(margen) || (rango_sup <= rango_inf)) {
+                flag = false;
+            }
+            else {
+                for (let i = 0; i <= margen; i++) {
+                    ids.push(String(rango_inf + i));
+                    if (!((typeof(Number(ids[i])) === 'number') && (!isNaN(Number(ids[i]))))) {
+                        flag = false;
+                    }            
+                }
             }
         })
 
@@ -33,9 +59,9 @@ const checkForNums = (array) => {
 
 const Submit = (l, off, v, a, r) => {
 
-    if (checkForNums(l)) {
+    if (checkForNums(l, off, v, a, r)) {
 
-        console.log('check for nums correcto')
+        console.log('check exitoso');
 
         let color = "";
 
@@ -53,14 +79,31 @@ const Submit = (l, off, v, a, r) => {
         }
 
         l[0].split(',').forEach(id => {
-            set(ref(db, 'downlink/' + id), {
-                color : color
-            });
-        }) 
+
+            let rangos = id.split('-')   
+            let rango_inf = Number(rangos[0]);
+            let rango_sup = Number(rangos[1]);
+            let margen = rango_sup - rango_inf;
+            let ids = [];  
+
+            if (rangos.length === 1) {
+                set(ref(db, 'downlink/' + rangos[0]), {
+                    color : color
+                });
+            }
+            else {
+                for (let i = 0; i <= margen; i++) {
+                    ids.push(String(rango_inf + i));
+                    set(ref(db, 'downlink/' + ids[i]), {
+                        color : color
+                    });
+                }
+            }
+        })
+
     }
     else{
-        console.log('else alerta')
-        alert('Debe ingresar la ID de al menos una tacha');
+        alert('Los datos ingresados son incorrectos:' + '\r\n' + '-> Las ids ingresadas no son números válidos' + '\r\n' + '-> Los rangos no son correctos (deben ser de menor a mayor)' + '\r\n' + '-> No hay un color seleccionado o hay más de uno');
     }
 };
 
