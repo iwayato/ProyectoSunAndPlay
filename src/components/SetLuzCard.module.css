@@ -1,38 +1,39 @@
 .SetLuzCard {
-    background-color: gray;
-    position: relative;
+    background: rgb(195,122,34);
+    background: linear-gradient(0deg, rgba(195,122,34,1) 0%, rgba(255,182,79,1) 100%);
     text-align: center;
-    width: 191px;
-    height: 190px;
-    margin: 5px;
-    border-radius: 8px;
-    padding-top: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
+    width: 300px;
+    height: 100vh;
 }
 
 .Input {
     margin-top: 8px;
     margin-bottom: 12px;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 5px;
+    border: none;
+    text-decoration: none;
+    padding: 5px 10px;
 }
 
 .Button {
-    margin-top: 22px;
-    border-radius: 4px;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: none;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: white;
 }
 
 .Labels {
     text-align: left;
-    margin-left: 25px;
+    margin-left: 14px;
 }
 
 .CheckBoxes {
     text-align: right;
-    margin-right: 25px;
-    margin-top: -88px;
+    margin-right: 14px;
+    margin-top: -92px;
 }
 
 

@@ -150,6 +150,15 @@ const SetLuzCard = () => {
 
         <div className={classes.SetLuzCard}>
 
+            <br></br>
+
+            <h2>Tachas Web</h2>
+
+            <p>
+                Para cambiar el color de la luz de las tachas hay dos opciones: ingresar id's 
+                separadas por comas o ingresar un rango de id's usando un guión (se incluyen los extremos).
+            </p>
+
             <input
                 className={classes.Input}
                 placeholder='Selecciona tachas' 
