@@ -35,12 +35,12 @@ const Map = (props) => {
 
     return(
 
-        <div className={classes.mapbox}>
+        <div>
 
             <SetLuzCard></SetLuzCard>
+    
+            <MapContainer center={center} zoom={zoom} minZoom={4} maxZoom={17} scrollWheelZoom={true} keyboardPanDelta={200} zoomControl={true}>
 
-            <MapContainer className='mapbox' center={center} zoom={zoom} minZoom={4} maxZoom={17} scrollWheelZoom={true} keyboardPanDelta={200} zoomControl={true}>
-            
                 <Links></Links>
 
                 <LayersControl position='topright' collapsed={false} className="Map">

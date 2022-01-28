@@ -148,9 +148,10 @@ const SetLuzCard = () => {
 
     return(
 
-        <div className={classes.card}>
+        <div className={classes.SetLuzCard}>
 
             <input
+                className={classes.Input}
                 placeholder='Selecciona tachas' 
                 type='text' 
                 name='tachas_sel'
@@ -159,50 +160,66 @@ const SetLuzCard = () => {
             >       
             </input><br></br>
 
-            <label>
-                Apagado
+            <div className={classes.Labels}>
+ 
+                <label>
+                    Apagado      
+                </label><br></br>
+        
+                <label>
+                    Verde
+                </label><br></br>
+
+                <label>
+                    Amarillo
+                </label><br></br>
+
+                <label>
+                    Rojo
+                </label><br></br>
+
+            </div>
+
+            <div className={classes.CheckBoxes}>
+
                 <input
                     type='checkbox'
                     name='apagado'
                     onChange={setApagadoHandler}
                 >
-                </input>
-            </label><br></br>
+                </input><br></br>
 
-            <label>
-                Verde
                 <input 
-                    type='checkbox'
-                    name='color_verde'
-                    onChange={setVerdeHandler}
+                        type='checkbox'
+                        name='color_verde'
+                        onChange={setVerdeHandler}
                 >
-                </input>
-            </label><br></br>
+                </input><br></br>
 
-            <label>
-                Amarillo
                 <input 
-                    type='checkbox' 
-                    name='color_amarillo'
-                    onChange={setAmarilloHandler}
+                        type='checkbox' 
+                        name='color_amarillo'
+                        onChange={setAmarilloHandler}
                 > 
-                </input>
-            </label><br></br>
+                </input><br></br>
 
-            <label>
-                Rojo
                 <input 
-                    type='checkbox' 
-                    name='color_rojo'
-                    onChange={setRojoHandler}
+                        type='checkbox' 
+                        name='color_rojo'
+                        onChange={setRojoHandler}
                 >   
-                </input>
-            </label><br></br>
+                </input><br></br>     
 
-            <button onClick={(e) => {
+            </div>
+
+            <button 
+                onClick={(e) => {
                 e.preventDefault()
-                Submit(tachasList, apagado, verde, amarillo, rojo)
-            }}>Enviar</button>
+                Submit(tachasList, apagado, verde, amarillo, rojo)}}
+                className={classes.Button}
+            >
+            Enviar
+            </button>
 
         </div>
 
