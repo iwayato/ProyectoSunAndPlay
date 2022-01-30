@@ -29,6 +29,12 @@ Se incorpora totalmente la base de datos RealTime Database de Firebase para real
 Se comienza a investigar sobre cómo incorporar un mecanismo que permita al usuario de la interfaz web cambiar el color de una tacha instalada en particular a través de una solicitud POST (mediante https).
 Se comienza a planificar sobre posibles características que incrementarían la funcionalidad de la página web, tales como una leyenda que indique los diferentes niveles de temperatura, humedad y aceleración que experimenta cada tacha en un instante dado.
 
+## Semana 4 : 24/01/22 al 28/01/22
+
+Se decide controlar el color de la luz que emiten las tachas usando como intermediario la base de datos de Firebase, en otras palabras, crear un conjunto de datos que represente el color que debe tener cada tacha instalada según lo que se ingrese a un menú que envié dicha elección a la base de datos. Este menú está compuesto por dos partes, la primera corresponde a una entrada de texto donde el usuario tiene dos opciones: ingresar las id’s de las tachas separadas por comas (esto en caso de que la cantidad de tachas a manipular sea reducida) o ingredar un rango de id’s utilizando un guión (si lo que se desea es cambiar un gran número de tachas rápidamente). Luego, por parte de la plataforma ChirpStack se lee la información que está en la base de datos cada cierto intervalo de tiempo para actualizar el color de luz que emite cada tacha. Una vez implementado la interfaz de usuario se procede a realizar la decoración de ésta, con un enfoque en la simplicidad del diseño, utilizando además los colores principales de la empresa.
+Finalmente, para comprobar que el sistema implementado funcionase, se utiliza la plataforma de streaming Twitch para monitorear una tacha simulada con una protoboard y luces led, la que se controla a distancia con la interfaz creada. A partir de lo observado, el sistema funciona perfectamente.
+
+
 
 
 
