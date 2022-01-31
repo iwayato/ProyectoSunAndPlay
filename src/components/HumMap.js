@@ -4,13 +4,13 @@ import { useState } from "react";
 
 const color_selector = (hum) => {
 
-    if ((0 <= hum) && (hum <= 53)) {
+    if ((0 <= hum) && (hum <= 60)) {
         return '#00ffe1'
     }
-    if ((54 <= hum) && (hum <= 57)) {
+    if ((60.001 <= hum) && (hum <= 80)) {
         return '#00aeff'
     }
-    if ((58 <= hum) && (hum <= 60)) {
+    if ((80.001 <= hum) && (hum <= 100)) {
         return '#001aff'
     }
     else {

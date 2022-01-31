@@ -12,9 +12,9 @@
     text-align: center;
     border-radius: 10px;
     border: none;
-    text-decoration: none;
     padding: 5px 10px;
     transition-duration: 0.4s;
+    outline: none;
 }
 
 .Input:hover {
@@ -45,7 +45,7 @@
 .CheckBoxes {
     text-align: right;
     margin-right: 14px;
-    margin-top: -92px;
+    margin-top: -75px;
 }
 
 .Container {
@@ -156,6 +156,3 @@
     border: 1px solid black;
     line-height: 20px;
 }
-
-
-

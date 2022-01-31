@@ -7,10 +7,10 @@ const color_selector = (acel) => {
     if ((0 <= acel) && (acel <= 6)) {
         return '#ffdd00'
     }
-    if ((6.1 <= acel) && (acel <= 8)) {
+    if ((6.001 <= acel) && (acel <= 8)) {
         return '#ff9900'
     }
-    if ((8.1 <= acel) && (acel <= 10)) {
+    if ((8.001 <= acel) && (acel <= 10)) {
         return '#ff4800'
     }
     else {
