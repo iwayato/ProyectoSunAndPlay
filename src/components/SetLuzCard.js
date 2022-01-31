@@ -225,7 +225,7 @@ const SetLuzCard = () => {
                 </input><br></br>
 
                 <input 
-                    type='radio' 
+                    type='radio'
                     name='color_tacha'
                     onChange={setRojoHandler}
                 >   
@@ -242,6 +242,27 @@ const SetLuzCard = () => {
             >
             Enviar
             </button>
+
+            <h4>Temperatura</h4>
+            <div className={classes.Container}>
+                <div className={classes.temperatura_baja}>0 - 60</div>
+                <div className={classes.temperatura_media}>61 - 80</div>
+                <div className={classes.temperatura_alta}>81 - 100</div>
+            </div>
+
+            <h4>Humedad</h4>
+            <div className={classes.Container}>
+                <div className={classes.humedad_baja}>0 - 60</div>
+                <div className={classes.humedad_media}>61 - 80</div>
+                <div className={classes.humedad_alta}>81 - 100</div>
+            </div>
+
+            <h4>Vibraciones</h4>
+            <div className={classes.Container}>
+                <div className={classes.vibraciones_baja}>0 - 6.0</div>
+                <div className={classes.vibraciones_media}>6.1 - 8.0</div>
+                <div className={classes.vibraciones_alta}>8.1 - 10.0</div>
+            </div>
 
         </div>
 

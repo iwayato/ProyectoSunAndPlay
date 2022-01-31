@@ -8,7 +8,7 @@
 
 .Input {
     margin-top: 8px;
-    margin-bottom: 12px;
+    margin-bottom: 22px;
     text-align: center;
     border-radius: 10px;
     border: none;
@@ -23,7 +23,8 @@
 }
 
 .Button {
-    margin-top: 15px;
+    margin-top: 22px;
+    margin-bottom: 15px;
     border-radius: 10px;
     border: none;
     text-decoration: none;
@@ -45,6 +46,115 @@
     text-align: right;
     margin-right: 14px;
     margin-top: -92px;
+}
+
+.Container {
+    width: 80%; /* Full width */
+    margin-left: 10%;
+    height: 20px;
+    background-color: #ddd; /* Grey background */
+}
+
+.temperatura_baja {
+    width: 33.4%;
+    height: 20px;
+    background-color: #59ff00;
+    text-align: center;
+    color: black;
+    border: 1px solid black;
+    line-height: 20px;
+}
+
+.temperatura_media {
+    width: 33.3333%;
+    height: 20px;
+    background-color: #ffff00;
+    text-align: center;
+    color: black;
+    margin-left: 33.4%;
+    margin-top: -22px;
+    border: 1px solid black;
+    line-height: 20px;
+}
+
+.temperatura_alta {
+    width: 33.3333%;
+    height: 20px;
+    background-color: #ff3300;
+    text-align: center;
+    color: black;
+    margin-left: 66.7%;
+    margin-top: -22px;
+    border: 1px solid black;
+    line-height: 20px;
+}
+
+.humedad_baja {
+    width: 33.4%;
+    height: 20px;
+    background-color: #00ffe1;
+    text-align: center;
+    color: black;
+    border: 1px solid black;
+    line-height: 20px;
+}
+
+.humedad_media {
+    width: 33.3333%;
+    height: 20px;
+    background-color: #00aeff;
+    text-align: center;
+    color: black;
+    margin-left: 33.4%;
+    margin-top: -22px;
+    border: 1px solid black;
+    line-height: 20px;
+}
+
+.humedad_alta {
+    width: 33.3333%;
+    height: 20px;
+    background-color: #001aff;
+    text-align: center;
+    color: black;
+    margin-left: 66.7%;
+    margin-top: -22px;
+    border: 1px solid black;
+    line-height: 20px;
+}
+
+.vibraciones_baja {
+    width: 33.4%;
+    height: 20px;
+    background-color: #ffdd00;
+    text-align: center;
+    color: black;
+    border: 1px solid black;
+    line-height: 20px;
+}
+
+.vibraciones_media {
+    width: 33.3333%;
+    height: 20px;
+    background-color: #ff9900;
+    text-align: center;
+    color: black;
+    margin-left: 33.4%;
+    margin-top: -22px;
+    border: 1px solid black;
+    line-height: 20px;
+}
+
+.vibraciones_alta {
+    width: 33.3333%;
+    height: 20px;
+    background-color: #ff4800;
+    text-align: center;
+    color: black;
+    margin-left: 66.7%;
+    margin-top: -22px;
+    border: 1px solid black;
+    line-height: 20px;
 }
 
 

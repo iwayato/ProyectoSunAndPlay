@@ -4,14 +4,14 @@ import { useState } from "react";
 
 const color_selector = (acel) => {
 
-    if ((0 <= acel) && (acel <= 60)) {
-        return '#ff3300'
+    if ((0 <= acel) && (acel <= 6)) {
+        return '#ffdd00'
     }
-    if ((61 <= acel) && (acel <= 80)) {
-        return '#ffff00'
+    if ((6.1 <= acel) && (acel <= 8)) {
+        return '#ff9900'
     }
-    if ((81 <= acel) && (acel <= 100)) {
-        return '#59ff00'
+    if ((8.1 <= acel) && (acel <= 10)) {
+        return '#ff4800'
     }
     else {
         return 'gray'
@@ -70,7 +70,7 @@ const VibMap = (props) => {
                 <Circle  
                     key={tacha.id}
                     center={[tacha.location.latitud, tacha.location.longitud]}
-                    pathOptions={{color: color_selector(tacha.acelerometro), stroke : true, fillOpacity : 0.5, weight: 3}}
+                    pathOptions={{color: color_selector(tacha.acelerometro), stroke : false, fillOpacity : 1, weight: 3}}
                     radius={zoom_converter(zoomLevel)}>
                     <Popup closeOnClick={false}>
                         ID: {tacha.id} <br></br>
