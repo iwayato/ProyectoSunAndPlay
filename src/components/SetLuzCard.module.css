@@ -10,19 +10,30 @@
     margin-top: 8px;
     margin-bottom: 12px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     text-decoration: none;
     padding: 5px 10px;
+    transition-duration: 0.4s;
+}
+
+.Input:hover {
+    background-color: #c7c7c7;
+    color: black;
 }
 
 .Button {
     margin-top: 15px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     text-decoration: none;
     padding: 5px 10px;
-    background-color: white;
+    transition-duration: 0.4s;
+}
+
+.Button:hover {
+    background-color: #c7c7c7;
+    color: black;
 }
 
 .Labels {

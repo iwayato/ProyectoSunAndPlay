@@ -132,17 +132,29 @@ const SetLuzCard = () => {
 
     const setApagadoHandler = () => {
         setApagado(!apagado);
+        setVerde(false);
+        setAmarillo(false);
+        setRojo(false);
     }
     
     const setVerdeHandler = () => {
-        setVerde(!verde);
+        setApagado(false);
+        setVerde(!verde);     
+        setAmarillo(false);
+        setRojo(false);
     }
    
     const setAmarilloHandler = () => {
-        setAmarillo(!amarillo);
+        setApagado(false);
+        setVerde(false); 
+        setAmarillo(!amarillo);  
+        setRojo(false);
     }
     
     const setRojoHandler = () => {
+        setApagado(false);
+        setVerde(false);
+        setAmarillo(false);
         setRojo(!rojo);
     }
 
@@ -192,40 +204,41 @@ const SetLuzCard = () => {
             <div className={classes.CheckBoxes}>
 
                 <input
-                    type='checkbox'
-                    name='apagado'
+                    type='radio'
+                    name='color_tacha'
                     onChange={setApagadoHandler}
                 >
                 </input><br></br>
 
                 <input 
-                        type='checkbox'
-                        name='color_verde'
-                        onChange={setVerdeHandler}
+                    type='radio'
+                    name='color_tacha'
+                    onChange={setVerdeHandler}
                 >
                 </input><br></br>
 
                 <input 
-                        type='checkbox' 
-                        name='color_amarillo'
-                        onChange={setAmarilloHandler}
+                    type='radio' 
+                    name='color_tacha'
+                    onChange={setAmarilloHandler}
                 > 
                 </input><br></br>
 
                 <input 
-                        type='checkbox' 
-                        name='color_rojo'
-                        onChange={setRojoHandler}
+                    type='radio' 
+                    name='color_tacha'
+                    onChange={setRojoHandler}
                 >   
                 </input><br></br>     
 
             </div>
 
-            <button 
+            <button
+                className={classes.Button} 
                 onClick={(e) => {
-                e.preventDefault()
-                Submit(tachasList, apagado, verde, amarillo, rojo)}}
-                className={classes.Button}
+                    e.preventDefault()
+                    Submit(tachasList, apagado, verde, amarillo, rojo)
+                }}
             >
             Enviar
             </button>
