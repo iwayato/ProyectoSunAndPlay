@@ -10,7 +10,6 @@ import ColorTacha from './ColorTachas';
 import SetLuzCard from './SetLuzCard';
 import classes from './Map.module.css';
 
-
 // Zoom y Centro del Mapa
 const zoom = 14;
 const center = [-33.033916, -71.594816];

@@ -247,4 +247,14 @@ lista.forEach(id => {
     set(ref(db, 'downlink/' + id), {
         color : color
     });
-}) 
+})
+
+
+<Marker
+    icon={color_selector(tacha.temperatura)}
+    //key={tacha.id}
+    position={[tacha.location.latitud, tacha.location.longitud]}
+    //center={[tacha.location.latitud, tacha.location.longitud]}
+    //pathOptions={{color: color_selector(tacha.temperatura), stroke : false, fillOpacity : 1.0}}
+    //radius={zoom_converter(zoomLevel)}
+    >

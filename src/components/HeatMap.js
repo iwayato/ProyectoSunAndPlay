@@ -1,20 +1,28 @@
-import { Circle, Popup, Tooltip, useMapEvents } from "react-leaflet"
+import { Marker, Circle, Popup, Tooltip, useMapEvents } from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import { useState } from "react";
+import { FlameIcon } from "../Icons/FlameIcon";
+import { ColdIcon } from "../Icons/ColdIcon";
+import { ChillIcon } from "../Icons/ChillIcon";
+import { ThinkIcon } from "../Icons/ThinkIcon";
 
 const color_selector = (tmp) => {
 
     if ((0 <= tmp) && (tmp <= 60)) {
-        return '#59ff00'
+        return ColdIcon;
+        //return '#59ff00'
     }
     if ((61 <= tmp) && (tmp <= 80)) {
-        return '#ffff00'
+        return ChillIcon;
+        //return '#ffff00'
     }
     if ((81 <= tmp) && (tmp <= 100)) {
-        return '#ff3300'
+        return FlameIcon;
+        //return '#ff3300'
     }
     else {
-        return 'gray'
+        return ThinkIcon;
+        //return 'gray'
     }
 }
 
@@ -67,11 +75,14 @@ const HeatMap = (props) => {
     return(
         <MarkerClusterGroup disableClusteringAtZoom={13} maxClusterRadius={60} singleMarkerMode={false}>
             {props.infoTachas.map(tacha => (
-                <Circle
+                <Marker
+                    icon={color_selector(tacha.temperatura)}
                     key={tacha.id}
-                    center={[tacha.location.latitud, tacha.location.longitud]}
-                    pathOptions={{color: color_selector(tacha.temperatura), stroke : false, fillOpacity : 1.0}}
-                    radius={zoom_converter(zoomLevel)}>
+                    position={[tacha.location.latitud, tacha.location.longitud]}
+                    //center={[tacha.location.latitud, tacha.location.longitud]}
+                    //pathOptions={{color: color_selector(tacha.temperatura), stroke : false, fillOpacity : 1.0}}
+                    //radius={zoom_converter(zoomLevel)}
+                    >
                     <Popup closeOnClick={false}>
                         ID: {tacha.id} <br></br>
                         Latitud: {tacha.location.latitud} <br></br>
@@ -90,7 +101,7 @@ const HeatMap = (props) => {
                         Humedad: {tacha.humedad}<br></br>
                         Acelerometro : {tacha.acelerometro} <br></br>
                     </Tooltip>
-                </Circle>
+                </Marker>
             ))}
         </MarkerClusterGroup>                 
     )
