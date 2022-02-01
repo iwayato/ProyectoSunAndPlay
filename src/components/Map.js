@@ -8,6 +8,7 @@ import HumMap from './HumMap';
 import VibMap from './VibMap';
 import ColorTacha from './ColorTachas';
 import SetLuzCard from './SetLuzCard';
+import PolyLineMap from './PolyLineMap';
 import classes from './Map.module.css';
 
 // Zoom y Centro del Mapa
@@ -72,6 +73,10 @@ const Map = (props) => {
 
                         <LayersControl.Overlay name='Color luz' checked={false}>
                             <ColorTacha infoTachas={props.infoTachas} zoom={zoom}></ColorTacha>
+                        </LayersControl.Overlay>
+
+                        <LayersControl.Overlay name='PolyLine' checked={false}>
+                            <PolyLineMap infoTachas={props.infoTachas}></PolyLineMap>
                         </LayersControl.Overlay>
 
                     </LayersControl>
