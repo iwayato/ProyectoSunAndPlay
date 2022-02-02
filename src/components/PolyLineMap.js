@@ -23,8 +23,6 @@ const isOdd = (num) => {
 
 function PolyLineMap(props) {
 
-    console.log(props.infoTachas)
-
     let locations = [];
     let colores =[];
     let locationsOneLine = [];
