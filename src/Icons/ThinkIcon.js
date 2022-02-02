@@ -1,10 +1,10 @@
 import L from 'leaflet';
 
 const ThinkIcon = new L.Icon({
-    iconUrl: require('../Assets/think-face.png'),
-    iconRetinaUrl: require("../Assets/think-face.png"),
-    iconSize: [40, 40],
-    iconAnchor: [20, 20],
+    iconUrl: require('../Assets/cirGris.png'),
+    iconRetinaUrl: require("../Assets/cirGris.png"),
+    iconSize: [20, 20],
+    iconAnchor: [10, 10],
 });
 
 export { ThinkIcon };

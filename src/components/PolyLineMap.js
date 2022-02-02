@@ -49,7 +49,7 @@ function PolyLineMap(props) {
                 <Polyline
                     key={locationsOneLine.indexOf(location)}
                     positions={location}
-                    pathOptions={{color: colores[locationsOneLine.indexOf(location)], weight: 8}}>
+                    pathOptions={{color: colores[locationsOneLine.indexOf(location)], weight: 8.5, lineCap: 'butt'}}>
                     <Tooltip direction="bottom" opacity={1} sticky = {true}>
                         ID: {props.infoTachas[locationsOneLine.indexOf(location)].id} <br></br>
                         Latitud: {props.infoTachas[locationsOneLine.indexOf(location)].location.latitud} <br></br>

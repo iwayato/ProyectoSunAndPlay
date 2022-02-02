@@ -1,10 +1,10 @@
 import L from 'leaflet';
 
 const FlameIcon = new L.Icon({
-    iconUrl: require('../Assets/face-with-heat.png'),
-    iconRetinaUrl: require("../Assets/face-with-heat.png"),
-    iconSize: [40, 40],
-    iconAnchor: [20, 20],
+    iconUrl: require('../Assets/cirRojo.png'),
+    iconRetinaUrl: require("../Assets/cirRojo.png"),
+    iconSize: [19, 19],
+    iconAnchor: [9.5, 9.5],
 });
 
 export { FlameIcon };
