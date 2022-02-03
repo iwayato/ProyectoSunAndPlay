@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set } from "firebase/database";
 import firebaseConfig from './firebaseConfig';
 import classes from './SetLuzCard.module.css';
+import { Link } from "react-router-dom";
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
@@ -165,6 +166,17 @@ const SetLuzCard = () => {
             <br></br>
 
             <h2>Tachas Web</h2>
+
+            <nav
+                style={{
+                    borderBottom: "solid 1px",
+                    borderTop: "solid 1px",
+                    paddingBottom: "1rem",
+                    paddingTop: "1rem"
+                }}
+            >
+                <Link to="/graficos">Gráficos</Link>
+            </nav>
 
             <p>
                 Para cambiar el color de la luz de las tachas hay dos opciones: ingresar id's 
