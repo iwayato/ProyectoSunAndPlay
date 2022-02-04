@@ -3,32 +3,42 @@ import classes from './Graph.module.css';
 import LineChartPlot from "../Graphs/LineChartPlot";
 import ScatterChartPlot from "../Graphs/ScatterChartPlot";
 import VerticalBarPlot from "../Graphs/VerticalBarPlot";
-import PieChartPlot from "../Graphs/PieChartPlot";
+import BubbleChartPlot from "../Graphs/BubbleChartPlot";
 
 const Graphs = () => {
 
     return(
-        <div className={classes.MainDiv}>
+
+        <div>
 
             <Link to="/">Página principal</Link>
 
-            <div>
-                <LineChartPlot></LineChartPlot>
+            <div className={classes.FilaUno}>
+
+                <div className={classes.Plots}>
+                    <LineChartPlot></LineChartPlot>
+                </div>
+
+                <div className={classes.Plots}>
+                    <ScatterChartPlot></ScatterChartPlot>
+                </div>
+
             </div>
 
-            <div>
-                <ScatterChartPlot></ScatterChartPlot>
-            </div>
-                
-            <div>
-                <VerticalBarPlot></VerticalBarPlot>
-            </div>
+            <div className={classes.FilaDos}>
 
-            <div>
-                <PieChartPlot></PieChartPlot>
+                <div className={classes.Plots}>
+                    <VerticalBarPlot></VerticalBarPlot>
+                </div>
+
+                <div className={classes.Plots}>
+                    <BubbleChartPlot></BubbleChartPlot>
+                </div> 
+
             </div>
 
         </div>
+
     )
 }
 

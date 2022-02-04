@@ -284,4 +284,57 @@ lista.forEach(id => {
         Acelerometro : {tacha.acelerometro} <br></br>
     </Tooltip>
   </Circle>
-</MarkerClusterGroup>  
+</MarkerClusterGroup>
+
+
+<div className={classes.MainDiv}>
+
+    <Link to="/">Página principal</Link>
+
+    <div className={classes.LineChartPlot}>
+        <LineChartPlot></LineChartPlot>
+    </div>
+    
+    <div className={classes.ScatterChartPlot}>
+        <ScatterChartPlot></ScatterChartPlot>
+    </div>
+    
+    <div className={classes.VerticalBarPlot}>
+        <VerticalBarPlot></VerticalBarPlot>
+    </div>
+
+    <div className={classes.PieChartPlot}>
+        <PieChartPlot></PieChartPlot>
+    </div>
+    
+</div>
+
+
+.LineChartPlot {
+    width: 50%;
+    height: 50%;
+    background-color: lightgray;
+}
+
+.ScatterChartPlot {
+    width: 50%;
+    margin-left: 50%;
+    height: 50%;
+    margin-top: -82%;
+    background-color: lightgray;
+}
+
+.VerticalBarPlot {
+    width: 50%;
+    height: 25vh;
+    margin-top: 0vh;
+    background-color: lightgray;
+}
+
+.PieChartPlot {
+    width: 50%;
+    margin-left: 50%;
+    height: 50%;
+    margin-top: -50%;
+    background-color: lightgray;
+}
