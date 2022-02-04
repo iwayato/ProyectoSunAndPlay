@@ -33,6 +33,7 @@ const options = {
       text: 'Chart.js Line Chart',
     },
   },
+  maintainAspectRatio: false
 };
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];

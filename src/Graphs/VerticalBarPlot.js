@@ -31,6 +31,7 @@ const options = {
       text: 'Chart.js Bar Chart',
     },
   },
+  maintainAspectRatio: false
 };
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];

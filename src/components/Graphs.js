@@ -11,9 +11,11 @@ const Graphs = () => {
 
         <div>
 
-            <Link to="/">Página principal</Link>
+            <div className={classes.Link}>
+                <Link to="/" style={{ textDecoration: 'none' }}>Página principal</Link>
+            </div>
 
-            <div className={classes.FilaUno}>
+            <div className={classes.Fila}>
 
                 <div className={classes.Plots}>
                     <LineChartPlot></LineChartPlot>
@@ -25,7 +27,7 @@ const Graphs = () => {
 
             </div>
 
-            <div className={classes.FilaDos}>
+            <div className={classes.Fila}>
 
                 <div className={classes.Plots}>
                     <VerticalBarPlot></VerticalBarPlot>
@@ -33,7 +35,7 @@ const Graphs = () => {
 
                 <div className={classes.Plots}>
                     <BubbleChartPlot></BubbleChartPlot>
-                </div> 
+                </div>
 
             </div>
 

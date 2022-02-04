@@ -169,13 +169,11 @@ const SetLuzCard = () => {
 
             <nav
                 style={{
-                    borderBottom: "solid 1px",
-                    borderTop: "solid 1px",
                     paddingBottom: "1rem",
                     paddingTop: "1rem"
                 }}
             >
-                <Link to="/graficos">Gráficos</Link>
+                <Link to="/graficos" style={{ textDecoration: 'none' }}>Gráficos</Link>
             </nav>
 
             <p>

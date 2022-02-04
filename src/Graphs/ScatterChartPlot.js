@@ -18,6 +18,7 @@ const options = {
       beginAtZero: true,
     },
   },
+  maintainAspectRatio: false
 };
 
 const data = {
