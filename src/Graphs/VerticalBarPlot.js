@@ -28,7 +28,7 @@ const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Bar Chart',
+      text: 'Vertical Bar Plot',
     },
   },
   maintainAspectRatio: false

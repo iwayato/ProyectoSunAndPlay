@@ -9,7 +9,7 @@ const Graphs = () => {
 
     return(
 
-        <div>
+        <div className={classes.MainDiv}>
 
             <div className={classes.Link}>
                 <Link to="/" style={{ textDecoration: 'none' }}>Página principal</Link>

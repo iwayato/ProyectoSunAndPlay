@@ -17,7 +17,16 @@ const options = {
       beginAtZero: true,
     },
   },
-  maintainAspectRatio: false
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      position: 'top',
+    },
+    title: {
+      display: true,
+      text: 'Bubble Plot',
+    },
+  },
 };
 
 const data = {

@@ -167,111 +167,129 @@ const SetLuzCard = () => {
 
             <h2>Tachas Web</h2>
 
-            <nav
-                style={{
-                    paddingBottom: "1rem",
-                    paddingTop: "1rem"
-                }}
-            >
-                <Link to="/graficos" style={{ textDecoration: 'none' }}>Gráficos</Link>
-            </nav>
+            <div className={classes.Herramientas}>
 
-            <p>
-                Para cambiar el color de la luz de las tachas hay dos opciones: ingresar id's 
-                separadas por comas o ingresar un rango de id's usando un guión (se incluyen los extremos).
-            </p>
+                <h4>Herramientas</h4>
 
-            <input
-                className={classes.Input}
-                placeholder='Selecciona tachas' 
-                type='text' 
-                name='tachas_sel'
-                value={tachasList}
-                onChange={tachasListHandler}
-            >       
-            </input><br></br>
-
-            <div className={classes.Labels}>
- 
-                <label>
-                    Apagado      
-                </label><br></br>
-        
-                <label>
-                    Verde
-                </label><br></br>
-
-                <label>
-                    Amarillo
-                </label><br></br>
-
-                <label>
-                    Rojo
-                </label><br></br>
+                <nav
+                    style={{
+                        paddingBottom: "1rem",
+                        paddingTop: "1rem"
+                    }}
+                >
+                    <Link to="/graficos" style={{ textDecoration: 'none' }}>Gráficos</Link>
+                </nav>
 
             </div>
 
-            <div className={classes.CheckBoxes}>
+            <div className={classes.CambiarLuzTachas}>
+
+                <h4>Cambiar Luz Tachas</h4>
+
+                <p>
+                    Para cambiar el color de la luz de las tachas hay dos opciones: ingresar id's 
+                    separadas por comas o ingresar un rango de id's usando un guión (se incluyen los extremos).
+                </p>
 
                 <input
-                    type='radio'
-                    name='color_tacha'
-                    onChange={setApagadoHandler}
+                    className={classes.Input}
+                    placeholder='Selecciona tachas' 
+                    type='text' 
+                    name='tachas_sel'
+                    value={tachasList}
+                    onChange={tachasListHandler}
+                >       
+                </input><br></br>
+
+                <div className={classes.Labels}>
+    
+                    <label>
+                        Apagado      
+                    </label><br></br>
+            
+                    <label>
+                        Verde
+                    </label><br></br>
+
+                    <label>
+                        Amarillo
+                    </label><br></br>
+
+                    <label>
+                        Rojo
+                    </label><br></br>
+
+                </div>
+
+                <div className={classes.CheckBoxes}>
+
+                    <input
+                        type='radio'
+                        name='color_tacha'
+                        onChange={setApagadoHandler}
+                    >
+                    </input><br></br>
+
+                    <input 
+                        type='radio'
+                        name='color_tacha'
+                        onChange={setVerdeHandler}
+                    >
+                    </input><br></br>
+
+                    <input 
+                        type='radio' 
+                        name='color_tacha'
+                        onChange={setAmarilloHandler}
+                    > 
+                    </input><br></br>
+
+                    <input 
+                        type='radio'
+                        name='color_tacha'
+                        onChange={setRojoHandler}
+                    >   
+                    </input><br></br>     
+
+                </div>
+
+                <button
+                    className={classes.Button} 
+                    onClick={(e) => {
+                        e.preventDefault()
+                        Submit(tachasList, apagado, verde, amarillo, rojo)
+                    }}
                 >
-                </input><br></br>
-
-                <input 
-                    type='radio'
-                    name='color_tacha'
-                    onChange={setVerdeHandler}
-                >
-                </input><br></br>
-
-                <input 
-                    type='radio' 
-                    name='color_tacha'
-                    onChange={setAmarilloHandler}
-                > 
-                </input><br></br>
-
-                <input 
-                    type='radio'
-                    name='color_tacha'
-                    onChange={setRojoHandler}
-                >   
-                </input><br></br>     
+                Enviar
+                </button>
 
             </div>
 
-            <button
-                className={classes.Button} 
-                onClick={(e) => {
-                    e.preventDefault()
-                    Submit(tachasList, apagado, verde, amarillo, rojo)
-                }}
-            >
-            Enviar
-            </button>
+            <div className={classes.Leyenda}>
 
-            <h4>Temperatura</h4>
-            <div className={classes.Container}>
-                <div className={classes.temperatura_baja}>0 - 60</div>
-                <div className={classes.temperatura_media}>61 - 80</div>
-                <div className={classes.temperatura_alta}>81 - 100</div>
-            </div>
+                <h3>Leyenda</h3>
 
-            <h4>Humedad</h4>
-            <div className={classes.Container}>
-                <div className={classes.humedad_baja}>0 - 60</div>
-                <div className={classes.humedad_media}>61 - 80</div>
-                <div className={classes.humedad_alta}>81 - 100</div>
-            </div>
+                <h4>Temperatura</h4>
+                <div className={classes.Container}>
+                    <div className={classes.temperatura_baja}>0 - 60</div>
+                    <div className={classes.temperatura_media}>61 - 80</div>
+                    <div className={classes.temperatura_alta}>81 - 100</div>
+                </div>
 
-            <h4>Vibraciones</h4>
-            <div className={classes.Container}>
-                <div className={classes.vibraciones_baja}>0 - 6.0</div>
-                <div className={classes.vibraciones_media}>6.1 - 8.0</div>
-                <div className={classes.vibraciones_alta}>8.1 - 10.0</div>
+                <h4>Humedad</h4>
+                <div className={classes.Container}>
+                    <div className={classes.humedad_baja}>0 - 60</div>
+                    <div className={classes.humedad_media}>61 - 80</div>
+                    <div className={classes.humedad_alta}>81 - 100</div>
+                </div>
+
+                <h4>Vibraciones</h4>
+                <div className={classes.ContainerFinal}>
+                    <div className={classes.vibraciones_baja}>0 - 6.0</div>
+                    <div className={classes.vibraciones_media}>6.1 - 8.0</div>
+                    <div className={classes.vibraciones_alta}>8.1 - 10.0</div>
+                </div>
+
             </div>
 
         </div>

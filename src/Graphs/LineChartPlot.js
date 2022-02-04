@@ -30,7 +30,7 @@ const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Line Chart',
+      text: 'Line Plot',
     },
   },
   maintainAspectRatio: false
@@ -57,7 +57,7 @@ const data = {
 };
 
 const LineChartPlot = () => {
-  return <Line options={options} data={data} />;
+  return <Line options={options} data={data}/>;
 }
 
 export default LineChartPlot;

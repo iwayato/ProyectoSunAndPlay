@@ -6,9 +6,28 @@
     height: 100vh;
 }
 
+.CambiarLuzTachas {
+    border: 2px solid black;
+    border-radius: 8px;
+    margin: 8px;
+}
+
+.Leyenda {
+    border: 2px solid black;
+    border-radius: 8px;
+    margin: 8px;
+}
+
+.Herramientas {
+    border: 2px solid black;
+    border-radius: 8px;
+    margin: 8px;
+    margin-top: 20px;
+}
+
 .Input {
-    margin-top: 8px;
-    margin-bottom: 22px;
+    margin-top: 0px;
+    margin-bottom: 17px;
     text-align: center;
     border-radius: 10px;
     border: none;
@@ -23,7 +42,7 @@
 }
 
 .Button {
-    margin-top: 22px;
+    margin-top: 15px;
     margin-bottom: 15px;
     border-radius: 10px;
     border: none;
@@ -53,6 +72,13 @@
     margin-left: 10%;
     height: 20px;
     background-color: #ddd; /* Grey background */
+}
+
+.ContainerFinal {
+    width: 80%; /* Full width */
+    margin-left: 10%;
+    height: 20px;
+    margin-bottom: 15px;
 }
 
 .temperatura_baja {
