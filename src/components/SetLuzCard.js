@@ -167,20 +167,14 @@ const SetLuzCard = () => {
 
             <h2>Tachas Web</h2>
 
-            <div className={classes.Herramientas}>
-
-                <h4>Herramientas</h4>
-
-                <nav
-                    style={{
-                        paddingBottom: "1rem",
-                        paddingTop: "1rem"
-                    }}
-                >
-                    <Link to="/graficos" style={{ textDecoration: 'none' }}>Gráficos</Link>
-                </nav>
-
-            </div>
+            <nav
+                style={{
+                    paddingBottom: "1rem",
+                    paddingTop: "1rem"
+                }}
+            >
+                <Link to="/graficos" style={{ textDecoration: 'none' }}>Gráficos</Link>
+            </nav>
 
             <div className={classes.CambiarLuzTachas}>
 
@@ -267,23 +261,21 @@ const SetLuzCard = () => {
 
             <div className={classes.Leyenda}>
 
-                <h3>Leyenda</h3>
-
-                <h4>Temperatura</h4>
+                <h4 className={classes.h44}> Rangos temperatura</h4>
                 <div className={classes.Container}>
                     <div className={classes.temperatura_baja}>0 - 60</div>
                     <div className={classes.temperatura_media}>61 - 80</div>
                     <div className={classes.temperatura_alta}>81 - 100</div>
                 </div>
 
-                <h4>Humedad</h4>
+                <h4 className={classes.h44}>Rangos humedad</h4>
                 <div className={classes.Container}>
                     <div className={classes.humedad_baja}>0 - 60</div>
                     <div className={classes.humedad_media}>61 - 80</div>
                     <div className={classes.humedad_alta}>81 - 100</div>
                 </div>
 
-                <h4>Vibraciones</h4>
+                <h4 className={classes.h44}>Rango vibraciones</h4>
                 <div className={classes.ContainerFinal}>
                     <div className={classes.vibraciones_baja}>0 - 6.0</div>
                     <div className={classes.vibraciones_media}>6.1 - 8.0</div>

@@ -16,6 +16,12 @@
     border: 2px solid black;
     border-radius: 8px;
     margin: 8px;
+    text-align: left;
+}
+
+.h44 {
+    font-family: 'Roboto', sans-serif;
+    margin-left: 14px;
 }
 
 .Herramientas {
@@ -27,7 +33,7 @@
 
 .Input {
     margin-top: 0px;
-    margin-bottom: 17px;
+    margin-bottom: 15px;
     text-align: center;
     border-radius: 10px;
     border: none;
@@ -42,8 +48,8 @@
 }
 
 .Button {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     border-radius: 10px;
     border: none;
     text-decoration: none;
@@ -68,17 +74,16 @@
 }
 
 .Container {
-    width: 80%; /* Full width */
-    margin-left: 10%;
+    width: 90%; /* Full width */
+    margin-left: 5%;
     height: 20px;
-    background-color: #ddd; /* Grey background */
 }
 
 .ContainerFinal {
-    width: 80%; /* Full width */
-    margin-left: 10%;
+    width: 90%; /* Full width */
+    margin-left: 5%;
     height: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .temperatura_baja {
