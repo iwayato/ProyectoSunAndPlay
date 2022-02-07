@@ -1,63 +1,46 @@
 import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import faker from '@faker-js/faker';
+import classes from './Plot.module.css'
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
 
-const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top',
-    },
-    title: {
-      display: true,
-      text: 'Line Plot',
-    },
-  },
-  maintainAspectRatio: false
-};
+const LineChartPlot = (props) => {
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  const options = {
 
-const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      label: 'Dataset 2',
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      borderColor: 'rgb(53, 162, 235)',
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
-};
+    responsive: true,
 
-const LineChartPlot = () => {
-  return <Line options={options} data={data}/>;
+    plugins: { title: { display: false, text: 'Temperatura' } },
+
+    maintainAspectRatio: false
+
+  };
+  
+  const labels = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+  
+  const data = {
+    labels,
+    datasets: [
+
+      {
+        label: props.varName,
+        data: labels.map(() => faker.datatype.number({ min: -10, max: 100 })),
+        borderColor: props.borderColor,
+        backgroundColor: props.backgroundColor,
+      },
+
+    ],
+  };
+
+  return(
+
+    <div className={classes.LinePlot}>
+      <Line options={options} data={data}/>
+    </div>
+
+  ) 
 }
 
 export default LineChartPlot;

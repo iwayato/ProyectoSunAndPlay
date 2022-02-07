@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import classes from './Graph.module.css';
-import LineChartPlot from "../Graphs/LineChartPlot";
-import ScatterChartPlot from "../Graphs/ScatterChartPlot";
-import VerticalBarPlot from "../Graphs/VerticalBarPlot";
-import BubbleChartPlot from "../Graphs/BubbleChartPlot";
+import GlobalLineChartPlot from "../Graphs/GlobalLineChartPlot";
+import GlobalScatterChartPlot from "../Graphs/GlobalScatterChartPlot";
+import GlobalVerticalBarPlot from "../Graphs/GlobalVerticalBarPlot";
+import GlobalBubbleChartPlot from "../Graphs/GlobalBubbleChartPlot";
 
 const Graphs = () => {
 
@@ -18,11 +18,11 @@ const Graphs = () => {
             <div className={classes.Fila}>
 
                 <div className={classes.Plots}>
-                    <LineChartPlot></LineChartPlot>
+                    <GlobalLineChartPlot></GlobalLineChartPlot>
                 </div>
 
                 <div className={classes.Plots}>
-                    <ScatterChartPlot></ScatterChartPlot>
+                    <GlobalScatterChartPlot></GlobalScatterChartPlot>
                 </div>
 
             </div>
@@ -30,11 +30,11 @@ const Graphs = () => {
             <div className={classes.Fila}>
 
                 <div className={classes.Plots}>
-                    <VerticalBarPlot></VerticalBarPlot>
+                    <GlobalVerticalBarPlot></GlobalVerticalBarPlot>
                 </div>
 
                 <div className={classes.Plots}>
-                    <BubbleChartPlot></BubbleChartPlot>
+                    <GlobalBubbleChartPlot></GlobalBubbleChartPlot>
                 </div>
 
             </div>

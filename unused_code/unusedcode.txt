@@ -338,3 +338,12 @@ lista.forEach(id => {
     margin-top: -50%;
     background-color: lightgray;
 }
+
+
+ID: {tacha.id} <br></br>
+Latitud: {tacha.location.latitud} <br></br>
+Longitud: {tacha.location.longitud} <br></br>
+Luz: {tacha.luz}<br></br>
+Temperatura: {tacha.temperatura}<br></br>
+Humedad: {tacha.humedad}<br></br>
+Acelerometro : {tacha.acelerometro} <br></br>
