@@ -9,6 +9,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 function DisplayAlert() {
+
     var newLine = "\r\n"
     var msg = "Los datos ingresados son incorrectos:"
     msg += newLine;
@@ -18,9 +19,10 @@ function DisplayAlert() {
     msg += newLine;
     msg += "-> No hay un color seleccionado o hay más de uno";
     alert(msg);
+    
 };
 
-const checkForNums = (array, off, v, a, r) => {
+const checkForNums = (array, off, v, a, r, t) => {
 
     let m0 = !off && !v && !a && r;
     let m1 = !off && !v && a && !r;
@@ -53,7 +55,7 @@ const checkForNums = (array, off, v, a, r) => {
                     flag = false;
                 }
             }
-            else if (isNaN(margen) || (rango_sup <= rango_inf)) {
+            else if (isNaN(margen) || (rango_sup <= rango_inf || rango_inf > t || rango_sup > t || margen > t || rangos[0] === '')) {
                 flag = false;
             }
             else {
@@ -71,9 +73,9 @@ const checkForNums = (array, off, v, a, r) => {
 
 };
 
-const Submit = (l, off, v, a, r) => {
+const Submit = (l, off, v, a, r, t) => {
 
-    if (checkForNums(l, off, v, a, r)) {
+    if (checkForNums(l, off, v, a, r, t)) {
 
         let color = "";
 
@@ -119,7 +121,7 @@ const Submit = (l, off, v, a, r) => {
     }
 };
 
-const SetLuzCard = () => {
+const SetLuzCard = (props) => {
 
     const [tachasList, settachasList] = useState('');
     const [apagado, setApagado] = useState(false);
@@ -250,8 +252,8 @@ const SetLuzCard = () => {
                 <button
                     className={classes.Button} 
                     onClick={(e) => {
-                        e.preventDefault()
-                        Submit(tachasList, apagado, verde, amarillo, rojo)
+                        e.preventDefault();
+                        Submit(tachasList, apagado, verde, amarillo, rojo, props.totalTachas);
                     }}
                 >
                 Enviar

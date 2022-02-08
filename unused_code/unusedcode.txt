@@ -347,3 +347,14 @@ Luz: {tacha.luz}<br></br>
 Temperatura: {tacha.temperatura}<br></br>
 Humedad: {tacha.humedad}<br></br>
 Acelerometro : {tacha.acelerometro} <br></br>
+
+
+var newLine = "\r\n"
+var msg = "Los datos ingresados son incorrectos:"
+msg += newLine;
+msg += "-> Las ids ingresadas no son números válidos";
+msg += newLine;
+msg += "-> Los rangos no son correctos (deben ser de menor a mayor)";
+msg += newLine;
+msg += "-> No hay un color seleccionado o hay más de uno";
+alert(msg);

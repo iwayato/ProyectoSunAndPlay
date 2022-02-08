@@ -36,7 +36,7 @@ const Map = (props) => {
 
         <div>
 
-            <SetLuzCard></SetLuzCard>
+            <SetLuzCard totalTachas={props.locations.length}></SetLuzCard>
 
             <div className={classes.Map}>
 
