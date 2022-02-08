@@ -114,10 +114,11 @@ const Submit = (l, off, v, a, r, t) => {
                 }
             }
         })
-
     }
     else{
+
         DisplayAlert();
+
     }
 };
 
@@ -253,7 +254,7 @@ const SetLuzCard = (props) => {
                     className={classes.Button} 
                     onClick={(e) => {
                         e.preventDefault();
-                        Submit(tachasList, apagado, verde, amarillo, rojo, props.totalTachas);
+                        Submit(tachasList, apagado, verde, amarillo, rojo, props.totalTachas)
                     }}
                 >
                 Enviar
