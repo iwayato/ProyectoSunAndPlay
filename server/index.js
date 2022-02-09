@@ -1,22 +1,30 @@
 const express = require("express");
 const app = express();
-const mysql = require("mysql");
+const port = 3000;
+const programmingLanguagesRouter = require("./routes/programmingLanguages");
 
-const db = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'test',
-})
+app.use(express.json());
 
-app.get('/', (req, res) => {
-    const sqlInsert = "INSERT INTO data (name, info) VALUES ('cat', 'dog');"
-    db.query(sqlInsert, (err, result) => {
-        res.send('hola');
-    });
-    
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+
+app.get("/", (req, res) => {
+  res.json({ message: "ok" });
 });
 
-app.listen(3001, () => {
-    console.log('running on port 3001');
+app.use("/programming-languages", programmingLanguagesRouter);
+/* Error handler middleware */
+
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  console.error(err.message, err.stack);
+  res.status(statusCode).json({ message: err.message });
+  return;
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
