@@ -7,7 +7,7 @@ const config = {
       password: "sunandplay",
       database: "sunandplay",
     },
-    listPerPage: 20,
+    listPerPage: 1000,
     
 };
 
