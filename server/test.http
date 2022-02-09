@@ -1,6 +1,31 @@
-POST http://localhost:3000/programming-languages
+###
+GET http://localhost:3000/programming-languages
 
-Accept: application/json
+###
+POST http://localhost:3000/programming-languages
 Content-type: application/json
 
-{"name": "dart", "released_year": 2011, "githut_rank": 13, "pypl_rank": 20, "tiobe_rank": 25}
+{
+    "name": "anything",
+    "released_year": 2022,
+    "githut_rank": 100,
+    "pypl_rank": 100,
+    "tiobe_rank": 99
+}
+
+###
+PUT  http://localhost:3000/programming-languages/1
+Content-type: application/json
+
+{
+    "name": "javascript",
+    "released_year": 2022,
+    "githut_rank": 100,
+    "pypl_rank": 100,
+    "tiobe_rank": 99
+}
+
+###
+DELETE http://localhost:3000/programming-languages/18
+
+
