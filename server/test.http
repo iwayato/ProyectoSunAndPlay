@@ -1,8 +1,8 @@
 ###
-GET http://localhost:3001/programming-languages
+GET http://localhost:3001/data/3
 
 ###
-POST http://localhost:3001/programming-languages
+POST http://localhost:3001/data
 Content-type: application/json
 
 {
@@ -14,7 +14,7 @@ Content-type: application/json
 }
 
 ###
-PUT  http://localhost:3001/programming-languages/1
+PUT  http://localhost:3001/data/1
 Content-type: application/json
 
 {
@@ -26,6 +26,6 @@ Content-type: application/json
 }
 
 ###
-DELETE http://localhost:3001/programming-languages/18
+DELETE http://localhost:3001/data/18
 
 

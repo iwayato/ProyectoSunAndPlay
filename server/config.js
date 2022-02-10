@@ -2,10 +2,11 @@ const config = {
 
     db: {
       /* don't expose password or any sensitive info, done only for demo */
-      host: "db4free.net",
-      user: "sunandplay",
-      password: "sunandplay",
-      database: "sunandplay",
+      host: "localhost",
+      port : 3306,
+      user: "root",
+      password: "Yoshifumi753@",
+      database: "test",
     },
     listPerPage: 1000,
     

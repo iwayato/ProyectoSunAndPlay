@@ -1,6 +1,7 @@
 .SetLuzCard {
-    background: rgb(195,122,34);
-    background: linear-gradient(0deg, rgba(195,122,34,1) 0%, rgba(255,182,79,1) 100%);
+    /*background: rgb(195,122,34);
+    background: linear-gradient(0deg, rgba(195,122,34,1) 0%, rgba(255,182,79,1) 100%);*/
+    background-color: lightgray;
     text-align: center;
     width: 300px;
     height: 100vh;
@@ -8,15 +9,17 @@
 
 .CambiarLuzTachas {
     border: 2px solid black;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .Leyenda {
     border: 2px solid black;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 10px;
+    margin: 10px;
     text-align: left;
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .h44 {

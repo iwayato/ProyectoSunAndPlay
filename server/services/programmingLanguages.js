@@ -2,25 +2,26 @@ const db = require('./db');
 const helper = require('../helper');
 const config = require('../config');
 
-async function getMultiple(page = 1){
+async function getMultiple(page = 1, id){
+
   const offset = helper.getOffset(page, config.listPerPage);
   const rows = await db.query(
-    `SELECT id, name, released_year, githut_rank, pypl_rank, tiobe_rank 
-    FROM programming_languages LIMIT ${offset},${config.listPerPage}`
+    `SELECT id, temperatura, humedad, aceleracion
+    FROM tacha_${id} LIMIT ${offset},${config.listPerPage}`
   );
   const data = helper.emptyOrRows(rows);
-  const meta = {page};
+  //const meta = {page};
 
   return {
     data,
-    meta
+    //meta
   }
 }
 
 async function create(programmingLanguage){
 
   const result = await db.query(
-    `INSERT INTO programming_languages 
+    `INSERT INTO tacha_00 
     (name, released_year, githut_rank, pypl_rank, tiobe_rank) 
     VALUES 
     ('${programmingLanguage.name}', ${programmingLanguage.released_year}, ${programmingLanguage.githut_rank}, ${programmingLanguage.pypl_rank}, ${programmingLanguage.tiobe_rank})`
@@ -37,7 +38,7 @@ async function create(programmingLanguage){
 
 async function update(id, programmingLanguage){
     const result = await db.query(
-      `UPDATE programming_languages 
+      `UPDATE tacha_00 
       SET name="${programmingLanguage.name}", released_year=${programmingLanguage.released_year}, githut_rank=${programmingLanguage.githut_rank}, 
       pypl_rank=${programmingLanguage.pypl_rank}, tiobe_rank=${programmingLanguage.tiobe_rank} 
       WHERE id=${id}` 
@@ -54,7 +55,7 @@ async function update(id, programmingLanguage){
 
 async function remove(id){
     const result = await db.query(
-      `DELETE FROM programming_languages WHERE id=${id}`
+      `DELETE FROM tacha_00 WHERE id=${id}`
     );
   
     let message = 'Error in deleting programming language';

@@ -26,11 +26,18 @@ function SetViewOnClick() {
     return null
 }
 
-const getData = () => {
-    Axios.get("http://localhost:3001/programming-languages").then((response) => {
-        console.log(response.data.data.slice(0,10));
-    });
-}
+const getData = (totalTachas) => {
+
+    for (let i = 0; i < totalTachas; i++) {
+
+        Axios.get(`http://localhost:3001/data/${i}`).then((response) => {
+            console.log(i, response.data.data.slice(0,100));
+        });
+
+    }
+
+};
+
 
 const Map = (props) => {
 
@@ -39,7 +46,7 @@ const Map = (props) => {
         tacha.color = props.color[tacha.id]
     });
 
-    getData();
+    getData(props.infoTachas.length);
 
     return(
 

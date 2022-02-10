@@ -3,9 +3,9 @@ const router = express.Router();
 const programmingLanguages = require('../services/programmingLanguages');
 
 /* GET programming languages. */
-router.get('/', async function(req, res, next) {
+router.get('/:id', async function(req, res, next) {
   try {
-    res.json(await programmingLanguages.getMultiple(req.query.page));
+    res.json(await programmingLanguages.getMultiple(req.query.page, req.params.id));
   } catch (err) {
     console.error(`Error while getting programming languages `, err.message);
     next(err);

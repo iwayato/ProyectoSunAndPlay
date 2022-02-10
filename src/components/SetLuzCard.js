@@ -170,27 +170,24 @@ const SetLuzCard = (props) => {
 
             <h2>Tachas Web</h2>
 
-            <nav
-                style={{
-                    paddingBottom: "1rem",
-                    paddingTop: "1rem"
-                }}
-            >
-                <Link to="/graficos" style={{ textDecoration: 'none' }}>Gráficos</Link>
-            </nav>
+            <div className={classes.CambiarLuzTachas}>
+                <nav
+                    style={{
+                        paddingBottom: "10px",
+                        paddingTop: "10px"
+                    }}
+                >
+                    <Link to="/graficos" style={{ textDecoration: 'none' }}>Gráficos</Link>
+                </nav>
+            </div>
 
             <div className={classes.CambiarLuzTachas}>
 
                 <h4>Cambiar Luz Tachas</h4>
 
-                <p>
-                    Para cambiar el color de la luz de las tachas hay dos opciones: ingresar id's 
-                    separadas por comas o ingresar un rango de id's usando un guión (se incluyen los extremos).
-                </p>
-
                 <input
                     className={classes.Input}
-                    placeholder='Selecciona tachas' 
+                    placeholder='ej: 0-3 o 0,1,2,3 o 0-2,3' 
                     type='text' 
                     name='tachas_sel'
                     value={tachasList}

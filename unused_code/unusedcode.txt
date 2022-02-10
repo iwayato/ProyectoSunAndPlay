@@ -358,3 +358,36 @@ msg += "-> Los rangos no son correctos (deben ser de menor a mayor)";
 msg += newLine;
 msg += "-> No hay un color seleccionado o hay más de uno";
 alert(msg);
+
+
+
+const config = {
+
+    db: {
+      /* don't expose password or any sensitive info, done only for demo */
+      host: "db4free.net",
+      user: "sunandplay",
+      password: "sunandplay",
+      database: "sunandplay",
+    },
+    listPerPage: 1000,
+    
+};
+
+module.exports = config;
+
+
+const options = {
+    method : 'GET',
+    headers : { 'content-type' : 'application/json' },
+    data : 
+        {
+            value : 10
+        },
+    url : "http://localhost:3001/data"
+}
+
+
+Axios.get("http://localhost:3001/data", {value: 10}).then((response) => {
+    console.log(response.data.data.slice(0,10));
+});
