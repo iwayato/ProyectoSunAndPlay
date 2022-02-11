@@ -1,7 +1,6 @@
 import React from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import faker from '@faker-js/faker';
 import classes from './Plot.module.css'
 
 ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
@@ -18,7 +17,7 @@ const LineChartPlot = (props) => {
 
   };
   
-  const labels = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+  const labels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
   
   const data = {
     labels,
@@ -26,7 +25,7 @@ const LineChartPlot = (props) => {
 
       {
         label: props.varName,
-        data: labels.map(() => faker.datatype.number({ min: -10, max: 100 })),
+        data: props.data,
         borderColor: props.borderColor,
         backgroundColor: props.backgroundColor,
       },

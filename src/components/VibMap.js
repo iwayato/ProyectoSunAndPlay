@@ -73,9 +73,11 @@ const VibMap = (props) => {
                     center={[tacha.location.latitud, tacha.location.longitud]}
                     pathOptions={{color: color_selector(tacha.acelerometro), stroke : false, fillOpacity : 1, weight: 3}}
                     radius={zoom_converter(zoomLevel)}>
+
                     <Popup closeOnClick={false}>
-                        <LineChartPlot varName='Vibraciones' borderColor='orange' backgroundColor='orange'></LineChartPlot>
+                        <LineChartPlot data={tacha.lastAcels} varName='Vibraciones' borderColor='orange' backgroundColor='orange'></LineChartPlot>
                     </Popup>
+
                     <Tooltip direction="bottom" opacity={1} sticky = {true}>
                         ID: {tacha.id} <br></br>
                         Latitud: {tacha.location.latitud} <br></br>

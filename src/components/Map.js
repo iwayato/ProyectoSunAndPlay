@@ -9,7 +9,6 @@ import VibMap from './VibMap';
 import ColorTacha from './ColorTachas';
 import SetLuzCard from './SetLuzCard';
 import classes from './Map.module.css';
-import Axios from 'axios';
 
 // Zoom y Centro del Mapa
 const zoom = 14;
@@ -26,27 +25,17 @@ function SetViewOnClick() {
     return null
 }
 
-const getData = (totalTachas) => {
-
-    for (let i = 0; i < totalTachas; i++) {
-
-        Axios.get(`http://localhost:3001/data/${i}`).then((response) => {
-            console.log(i, response.data.data.slice(0,100));
-        });
-
-    }
-
-};
-
-
 const Map = (props) => {
 
     props.infoTachas.forEach(tacha => {
         tacha.location = props.locations[tacha.id]
         tacha.color = props.color[tacha.id]
+        tacha.lastTemps = props.allTemps[tacha.id]
+        tacha.lastHums = props.allHums[tacha.id]
+        tacha.lastAcels = props.allAcels[tacha.id]
     });
 
-    getData(props.infoTachas.length);
+    console.log(props.infoTachas)
 
     return(
 

@@ -73,9 +73,11 @@ const HumMap = (props) => {
                     center={[tacha.location.latitud, tacha.location.longitud]}
                     pathOptions={{color: color_selector(tacha.humedad), stroke : false, fillOpacity : 1.0}}
                     radius={zoom_converter(zoomLevel)}>
+
                     <Popup closeOnClick={false}>
-                        <LineChartPlot varName='Humedad' borderColor='blue' backgroundColor='blue'></LineChartPlot>
-                    </Popup> 
+                        <LineChartPlot data={tacha.lastHums} varName='Humedad' borderColor='blue' backgroundColor='blue'></LineChartPlot>
+                    </Popup>
+
                     <Tooltip direction="bottom" opacity={1} sticky = {true}>
                         ID: {tacha.id} <br></br>
                         Latitud: {tacha.location.latitud} <br></br>

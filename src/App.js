@@ -4,6 +4,11 @@ import { Component } from 'react';
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
 import firebaseConfig from './components/firebaseConfig';
+import Axios from 'axios';
+
+function insertAt(array, index, ...elementsArray) {
+  array.splice(index, 0, ...elementsArray);
+}
 
 class App extends Component {
 
@@ -12,7 +17,10 @@ class App extends Component {
     this.state = {
       data : [],
       locations : [],
-      color : []
+      color : [],
+      allTemps : [],
+      allHums : [],
+      allAcels : []
     }
   };
 
@@ -60,9 +68,15 @@ class App extends Component {
       this.setState({ color: colorList })
     });
 
-    //Para los datos de las tachas
+    //Para los datos más recientes de las tachas
     onValue(dbRef, (snapshot) => {
+
       let newData = [];
+      let tachasAllData = [];
+      let allTemps = [];
+      let allHums = [];
+      let allAcels = [];
+
       snapshot.forEach(data => {
         const dataVal = data.val()
         newData.push({
@@ -70,14 +84,52 @@ class App extends Component {
           temperatura: dataVal.Temperatura,
           humedad: dataVal.Humedad,
           acelerometro: dataVal.Aceleracion,
-          luz: dataVal.luz})});
+          luz: dataVal.luz})
+      });
+
+      for (let i = 0; i < newData.length; i++) {
+        Axios.get(`http://localhost:3001/data/${i}`).then((response) => {insertAt(tachasAllData, i, response.data.data.slice(0,100))});
+      }
+
+      tachasAllData.forEach((tacha) => {
+
+        let tempTemps = [];
+        let tempHums = [];
+        let tempAcels = [];
+
+        tacha.forEach(record => {
+          tempTemps.push(record.temperatura);
+          tempHums.push(record.humedad);
+          tempAcels.push(record.aceleracion);
+        });
+
+        allTemps.push(tempTemps);
+        allHums.push(tempHums);
+        allAcels.push(tempAcels);
+
+      });
+
       this.setState({ data: newData })
+      this.setState({ allTemps : allTemps })
+      this.setState({ allHums : allHums })
+      this.setState({ allAcels : allAcels })
+
     });
+
   }
 
   render(){
       return(
-        <Map infoTachas={this.state.data} locations={this.state.locations} color={this.state.color}></Map>
+
+        <Map  
+          infoTachas={this.state.data} 
+          locations={this.state.locations} 
+          color={this.state.color} 
+          allTemps={this.state.allTemps} 
+          allHums={this.state.allHums} 
+          allAcels={this.state.allAcels}>
+        </Map>
+
       );
   }
 }

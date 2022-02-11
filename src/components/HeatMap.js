@@ -23,7 +23,7 @@ const isOdd = (num) => {
 }
 
 const HeatMap = (props) => {
-    
+
     let locations = [];
     let colores =[];
     let locationsOneLine = [];
@@ -47,6 +47,7 @@ const HeatMap = (props) => {
     return (
         <MarkerClusterGroup disableClusteringAtZoom={13} maxClusterRadius={60} singleMarkerMode={false}>
             {locationsOneLine.map( location => (
+
                 <Polyline
 
                     key={locationsOneLine.indexOf(location)}
@@ -54,7 +55,7 @@ const HeatMap = (props) => {
                     pathOptions={{color: colores[locationsOneLine.indexOf(location)], weight: 12, lineCap: 'round'}}>
 
                     <Popup closeOnClick={false}>
-                        <LineChartPlot varName='Temperatura' borderColor='red' backgroundColor='red'></LineChartPlot>
+                        <LineChartPlot data={props.infoTachas[locationsOneLine.indexOf(location)].lastTemps} varName='Temperatura' borderColor='red' backgroundColor='red'></LineChartPlot>
                     </Popup>
 
                     <Tooltip direction="bottom" opacity={1} sticky = {true}>
