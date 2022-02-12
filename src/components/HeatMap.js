@@ -1,6 +1,7 @@
 import { Popup, Polyline, Tooltip } from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import LineChartPlot from "../Graphs/LineChartPlot";
+import getData from "./getData";
 
 const color_selector = (tmp) => {
 
@@ -30,7 +31,7 @@ const HeatMap = (props) => {
 
     props.infoTachas.forEach(location => {
         locations.push([location.location.latitud, location.location.longitud]);
-        colores.push(color_selector(location.humedad));
+        colores.push(color_selector(location.temperatura));
     });
 
     if (isOdd(locations.length)) {
@@ -55,10 +56,6 @@ const HeatMap = (props) => {
                     pathOptions={{color: colores[locationsOneLine.indexOf(location)], weight: 12, lineCap: 'round'}}>
 
                     <Popup closeOnClick={false}>
-                        <LineChartPlot data={props.infoTachas[locationsOneLine.indexOf(location)].lastTemps} varName='Temperatura' borderColor='red' backgroundColor='red'></LineChartPlot>
-                    </Popup>
-
-                    <Tooltip direction="bottom" opacity={1} sticky = {true}>
                         ID: {props.infoTachas[locationsOneLine.indexOf(location)].id} <br></br>
                         Latitud: {props.infoTachas[locationsOneLine.indexOf(location)].location.latitud} <br></br>
                         Longitud: {props.infoTachas[locationsOneLine.indexOf(location)].location.longitud} <br></br>
@@ -66,6 +63,10 @@ const HeatMap = (props) => {
                         Temperatura: {props.infoTachas[locationsOneLine.indexOf(location)].temperatura}<br></br>
                         Humedad: {props.infoTachas[locationsOneLine.indexOf(location)].humedad}<br></br>
                         Acelerometro : {props.infoTachas[locationsOneLine.indexOf(location)].acelerometro} <br></br>
+                    </Popup>
+
+                    <Tooltip direction="bottom" opacity={1} sticky = {true}>
+                        <LineChartPlot data={getData('temperatura', locationsOneLine.indexOf(location) + 1)[1]} labels={getData('temperatura', locationsOneLine.indexOf(location) + 1)[0]} varName='Temperatura' borderColor='red' backgroundColor='red'></LineChartPlot>
                     </Tooltip>
 
                 </Polyline>

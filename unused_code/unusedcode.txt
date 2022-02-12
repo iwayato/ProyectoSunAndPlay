@@ -391,3 +391,61 @@ const options = {
 Axios.get("http://localhost:3001/data", {value: 10}).then((response) => {
     console.log(response.data.data.slice(0,10));
 });
+
+
+props.tachasAllData.forEach((tacha) => {
+
+    let tempTemps = [];
+    let tempHums = [];
+    let tempAcels = [];
+
+    tacha.forEach(record => {
+        tempTemps.push(record.temperatura);
+        tempHums.push(record.humedad);
+        tempAcels.push(record.aceleracion);
+    });
+
+    props.infoTachas[tacha.id].lastTemps.push(tempTemps);
+    props.infoTachas[tacha.id].lastHums.push(tempHums);
+    props.infoTachas[tacha.id].lastAcels.push(tempAcels);
+
+});
+
+
+props.tachasAllData[tacha.id].forEach((record) => {
+    console.log(record.temperatura);
+    // props.infoTachas.lastTemps.push(record.temperatura)
+    // props.infoTachas.lastHums.push(record.humedad)
+    // props.infoTachas.lastAcels.push(record.aceleracion)
+})
+
+try {
+    setInterval(async () => {
+    let tachasAllData = [];
+    for (let i = 0; i < 21; i++) {
+        Axios.get(`http://localhost:3001/data/${i}`).then((response) => {insertAt(tachasAllData, i, response.data.data.slice(0,100))});
+    }
+    this.setState({ tachasAllData : tachasAllData })
+    }, 10000);
+} catch(e) {
+    console.log(e);
+}
+
+
+async function getMultiple(page = 1, id){
+
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT id, temperatura, humedad, aceleracion
+    FROM tacha_${id} LIMIT ${offset},${config.listPerPage}`
+  );
+  const data = helper.emptyOrRows(rows);
+  //const meta = {page};
+
+  return {
+    data,
+    //meta
+  }
+}
+
+(response) => {console.log(response.data.data[0]);}

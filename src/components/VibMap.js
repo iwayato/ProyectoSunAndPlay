@@ -2,6 +2,7 @@ import { Circle, Popup, Tooltip, useMapEvents } from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import { useState } from "react";
 import LineChartPlot from "../Graphs/LineChartPlot";
+import getData from "./getData";
 
 const color_selector = (acel) => {
 
@@ -75,10 +76,6 @@ const VibMap = (props) => {
                     radius={zoom_converter(zoomLevel)}>
 
                     <Popup closeOnClick={false}>
-                        <LineChartPlot data={tacha.lastAcels} varName='Vibraciones' borderColor='orange' backgroundColor='orange'></LineChartPlot>
-                    </Popup>
-
-                    <Tooltip direction="bottom" opacity={1} sticky = {true}>
                         ID: {tacha.id} <br></br>
                         Latitud: {tacha.location.latitud} <br></br>
                         Longitud: {tacha.location.longitud} <br></br>
@@ -86,6 +83,10 @@ const VibMap = (props) => {
                         Temperatura: {tacha.temperatura}<br></br>
                         Humedad: {tacha.humedad}<br></br>
                         Acelerometro : {tacha.acelerometro} <br></br>
+                    </Popup>
+
+                    <Tooltip direction="bottom" opacity={1} sticky = {true}>
+                        <LineChartPlot data={getData('aceleracion', tacha.id + 1)[1]} labels={getData('aceleracion', tacha.id + 1)[0]} varName='Vibraciones' borderColor='orange' backgroundColor='orange'></LineChartPlot>
                     </Tooltip>
                 </Circle>
             ))}

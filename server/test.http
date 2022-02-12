@@ -1,5 +1,5 @@
 ###
-GET http://localhost:3001/data/3
+GET http://localhost:3001/data/aceleracion/1
 
 ###
 POST http://localhost:3001/data

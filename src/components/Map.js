@@ -28,14 +28,9 @@ function SetViewOnClick() {
 const Map = (props) => {
 
     props.infoTachas.forEach(tacha => {
-        tacha.location = props.locations[tacha.id]
-        tacha.color = props.color[tacha.id]
-        tacha.lastTemps = props.allTemps[tacha.id]
-        tacha.lastHums = props.allHums[tacha.id]
-        tacha.lastAcels = props.allAcels[tacha.id]
+        tacha.location = props.locations[tacha.id];
+        tacha.color = props.color[tacha.id];
     });
-
-    console.log(props.infoTachas)
 
     return(
 

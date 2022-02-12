@@ -2,12 +2,11 @@ const db = require('./db');
 const helper = require('../helper');
 const config = require('../config');
 
-async function getMultiple(page = 1, id){
+async function getMultiple(page = 1, parametro, id){
 
   const offset = helper.getOffset(page, config.listPerPage);
   const rows = await db.query(
-    `SELECT id, temperatura, humedad, aceleracion
-    FROM tacha_${id} LIMIT ${offset},${config.listPerPage}`
+    `SELECT * FROM ${parametro} WHERE id = ${id} LIMIT ${offset},${config.listPerPage}`
   );
   const data = helper.emptyOrRows(rows);
   //const meta = {page};

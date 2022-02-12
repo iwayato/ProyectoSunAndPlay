@@ -4,11 +4,6 @@ import { Component } from 'react';
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
 import firebaseConfig from './components/firebaseConfig';
-import Axios from 'axios';
-
-function insertAt(array, index, ...elementsArray) {
-  array.splice(index, 0, ...elementsArray);
-}
 
 class App extends Component {
 
@@ -18,9 +13,6 @@ class App extends Component {
       data : [],
       locations : [],
       color : [],
-      allTemps : [],
-      allHums : [],
-      allAcels : []
     }
   };
 
@@ -33,7 +25,6 @@ class App extends Component {
     const dbColor = ref(db, 'downlink/');
 
     //onValue se actualiza cada vez que algun dato cambia en la base de datos de RealTime Database
-
     //Para las posiciones de las tachas
     onValue(dbloc, (snapshot) => {
       let loc =[];
@@ -70,13 +61,7 @@ class App extends Component {
 
     //Para los datos más recientes de las tachas
     onValue(dbRef, (snapshot) => {
-
       let newData = [];
-      let tachasAllData = [];
-      let allTemps = [];
-      let allHums = [];
-      let allAcels = [];
-
       snapshot.forEach(data => {
         const dataVal = data.val()
         newData.push({
@@ -86,34 +71,7 @@ class App extends Component {
           acelerometro: dataVal.Aceleracion,
           luz: dataVal.luz})
       });
-
-      for (let i = 0; i < newData.length; i++) {
-        Axios.get(`http://localhost:3001/data/${i}`).then((response) => {insertAt(tachasAllData, i, response.data.data.slice(0,100))});
-      }
-
-      tachasAllData.forEach((tacha) => {
-
-        let tempTemps = [];
-        let tempHums = [];
-        let tempAcels = [];
-
-        tacha.forEach(record => {
-          tempTemps.push(record.temperatura);
-          tempHums.push(record.humedad);
-          tempAcels.push(record.aceleracion);
-        });
-
-        allTemps.push(tempTemps);
-        allHums.push(tempHums);
-        allAcels.push(tempAcels);
-
-      });
-
       this.setState({ data: newData })
-      this.setState({ allTemps : allTemps })
-      this.setState({ allHums : allHums })
-      this.setState({ allAcels : allAcels })
-
     });
 
   }
@@ -124,10 +82,7 @@ class App extends Component {
         <Map  
           infoTachas={this.state.data} 
           locations={this.state.locations} 
-          color={this.state.color} 
-          allTemps={this.state.allTemps} 
-          allHums={this.state.allHums} 
-          allAcels={this.state.allAcels}>
+          color={this.state.color}>
         </Map>
 
       );
