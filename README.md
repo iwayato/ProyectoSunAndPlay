@@ -41,6 +41,15 @@ Se añade un nuevo tipo de visualización, la cual corresponde a segmentos de re
 Se comienza a implementar una pestaña dentro de la página web que permite visualizar información relevante usando gráficos, por otra parte, la misma idea se implementó dentro de los pop-ups de cada tacha para, por ejemplo, ver la evolución temporal de la temperatura que midió esa tacha.
 Se comienza a investigar sobre cómo incorporar una base de datos relacional con la plataforma desarrollada, dado que es ésta la forma con la cual opera el cliente.
 
+## Semana 6 : 07/02/22 al 11/02/22
+
+Se desarrolla una base de datos de prueba utilizando MySQL Workbench que almacenará datos históricos adquiridos por los diferentes sensores para luego ser visualizados en los pop-ups de las tachas, tal como se explico en la semana anterior. Asimismo, para lograr acceder a la base de datos se generó una API (Interfaz de programación de aplicaciones) que permite realizar lecturas, escrituras, actualizaciones y borrado de datos. La forma es la que está estructurada la base de datos es la siguiente: cada fila corresponde a una tacha (identificada por su id) mientras que las columnas corresponden a la fecha en la cual se ingresó dichos datos, luego la aplicación web realiza el llamado de datos (mediante un GET request a través de la API) cada vez que se actualizan los datos en la base de datos de Firebase, es decir, el detonante para adquirir los datos históricos de las tachas es la actualización de datos en Firebase. Finalmente, los datos adquiridos mediante la API son asociados a los correspondientes gráficos de cada tacha.
+A continuación, se presentan diagramas para ejemplificar mejor la arquitectura implementada:
+
+![image](https://user-images.githubusercontent.com/68484788/153691501-51dc0079-a607-4dc0-8f3b-3d2f9c5d3dff.png)
+
+
+
 
 
 
