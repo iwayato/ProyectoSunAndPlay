@@ -2,20 +2,23 @@ import { Marker, Popup, Tooltip } from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import LineChartPlot from "../Graphs/LineChartPlot";
 import getData from "./getData";
+import { vib_bajo } from "../Icons/vib_bajo";
+import { vib_medio } from "../Icons/vib_medio";
+import { vib_alto } from "../Icons/vib_alto";
 
 const color_selector = (acel) => {
 
     if ((0 <= acel) && (acel <= 6)) {
-        return '#ffdd00'
+        return vib_bajo;
     }
     if ((6.001 <= acel) && (acel <= 8)) {
-        return '#ff9900'
+        return vib_medio;
     }
     if ((8.001 <= acel) && (acel <= 10)) {
-        return '#ff4800'
+        return vib_alto;
     }
     else {
-        return 'gray'
+        return;
     }
 }
 
@@ -24,7 +27,8 @@ const VibMap = (props) => {
     return(
         <MarkerClusterGroup disableClusteringAtZoom={13} maxClusterRadius={60} singleMarkerMode={false}>
             {props.infoTachas.map(tacha => (
-                <Marker  
+                <Marker
+                    icon={color_selector(tacha.acelerometro)}  
                     key={tacha.id}
                     position={[tacha.location.latitud, tacha.location.longitud]}>
                     <Popup closeOnClick={false}>

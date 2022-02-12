@@ -2,20 +2,23 @@ import { Marker, Popup, Tooltip } from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import LineChartPlot from "../Graphs/LineChartPlot";
 import getData from "./getData";
+import { hum_bajo } from "../Icons/hum_bajo";
+import { hum_medio } from "../Icons/hum_medio";
+import { hum_alto } from "../Icons/hum_alto";
 
 const color_selector = (hum) => {
 
     if ((0 <= hum) && (hum <= 60)) {
-        return '#00ffe1'
+        return hum_bajo;
     }
     if ((60.001 <= hum) && (hum <= 80)) {
-        return '#00aeff'
+        return hum_medio;
     }
     if ((80.001 <= hum) && (hum <= 100)) {
-        return '#001aff'
+        return hum_alto;
     }
     else {
-        return 'gray'
+        return;
     }
 }
 
@@ -24,7 +27,8 @@ const HumMap = (props) => {
     return(
         <MarkerClusterGroup disableClusteringAtZoom={13} maxClusterRadius={60} singleMarkerMode={false}>
             {props.infoTachas.map(tacha => (
-                <Marker  
+                <Marker
+                    icon={color_selector(tacha.humedad)}  
                     key={tacha.id}
                     position={[tacha.location.latitud, tacha.location.longitud]}>
                     <Popup closeOnClick={false}>
