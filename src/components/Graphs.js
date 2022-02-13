@@ -4,8 +4,11 @@ import GlobalLineChartPlot from "../Graphs/GlobalLineChartPlot";
 import GlobalScatterChartPlot from "../Graphs/GlobalScatterChartPlot";
 import GlobalVerticalBarPlot from "../Graphs/GlobalVerticalBarPlot";
 import GlobalBubbleChartPlot from "../Graphs/GlobalBubbleChartPlot";
+import getData from "./getData";
 
 const Graphs = () => {
+
+    // como obtener la informacion
 
     return(
 

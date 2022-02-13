@@ -1,26 +1,11 @@
 import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import faker from '@faker-js/faker';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
+
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
 const options = {
   responsive: true,
@@ -35,8 +20,6 @@ const options = {
   },
   maintainAspectRatio: false
 };
-
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
 const data = {
   labels,
