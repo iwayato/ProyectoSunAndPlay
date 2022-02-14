@@ -8,7 +8,27 @@ import getData from "./getData";
 
 const Graphs = () => {
 
-    // como obtener la informacion
+    const numTachas = 21;
+    const labels = [];
+    labels.push(getData('temperatura', 1)[0]);
+
+    const temps = [];
+    const hums = [];
+    const acels = [];
+
+    ['temperatura', 'humedad', 'aceleracion'].forEach((param) => {
+        for (let m = 1; m <= numTachas; m++) {
+            if (param === 'temperatura') {
+                temps.push(getData(param, m)[1]);
+            }
+            if (param === 'humedad') {
+                hums.push(getData(param, m)[1]);
+            }
+            if (param === 'aceleracion') {
+                acels.push(getData(param, m)[1]);
+            }
+        }
+    })
 
     return(
 
@@ -21,7 +41,7 @@ const Graphs = () => {
             <div className={classes.Fila}>
 
                 <div className={classes.Plots}>
-                    <GlobalLineChartPlot></GlobalLineChartPlot>
+                    <GlobalLineChartPlot labels={labels} temps={temps} hums={hums} acels={acels}></GlobalLineChartPlot>
                 </div>
 
                 <div className={classes.Plots}>

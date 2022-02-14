@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Graphs from './components/Graphs'
+import Graphs from './components/Graphs';
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
