@@ -449,3 +449,34 @@ async function getMultiple(page = 1, id){
 }
 
 (response) => {console.log(response.data.data[0]);}
+
+
+l[0].split(',').forEach(id => {
+
+    let rangos = id.split('-')   
+    let rango_inf = Number(rangos[0]);
+    let rango_sup = Number(rangos[1]);
+    let margen = rango_sup - rango_inf;
+    let ids = [];  
+
+    if (rangos.length === 1) {
+        set(ref(db, 'downlink/' + rangos[0]), {
+            color : color
+        });
+    }
+    else {
+        for (let i = 0; i <= margen; i++) {
+            ids.push(String(rango_inf + i));
+            set(ref(db, 'downlink/' + ids[i]), {
+                color : color
+            });
+        }
+    }
+})
+}
+
+
+
+set(ref(db, 'downlink/' + rangos[0]), {
+    color : color
+});

@@ -2,6 +2,22 @@
 GET http://localhost:3001/data/aceleracion/2
 
 ###
+POST https://sunandchirpstack.ddns.net:8080/api/devices/2cf7f1203230a466/queue
+Content-Type: application/json
+Accept: application/json
+Grpc-Metadata-Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5X2lkIjoiNDExMzkxZDItMGY0ZC00MTAzLTkwZjAtNDE1NTQ0ZjA4YTljIiwiYXVkIjoiYXMiLCJpc3MiOiJhcyIsIm5iZiI6MTY0MjYxNjIwMCwic3ViIjoiYXBpX2tleSJ9._a7OBvSyrw0z-Gdo36W2SgjoVfe5syE2ZgKsl-13qes
+
+{
+  "deviceQueueItem": {
+    "confirmed": true,
+    "data": "AA==",
+    "devEUI": "2cf7f1203230a466",
+    "fCnt": 0,
+    "fPort": 3
+  }
+}
+
+###
 POST http://localhost:3001/data
 Content-type: application/json
 
