@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import getData from "../components/getData";
@@ -6,58 +6,52 @@ import getData from "../components/getData";
 ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
 
 const numTachas = 21;
-const labels = [];
-const temps = [];
-const hums = [];
-const acels = [];
+let labels = [];
+let temps = [];
+let hums = [];
+let acels = [];
 
 const randomColor = () => {
   return Math.floor(Math.random()*16777215).toString(16);
 }
 
-function obtenerDatos() {
-  console.log('Llamado a obtener datos');
+labels.push(getData('M_Temperatura', 1)[0]);
 
-  labels.push(getData('temperatura', 1)[0]);
 
-  ['temperatura', 'humedad', 'aceleracion'].forEach((param) => {
-      for (let m = 1; m <= numTachas; m++) {
-          if (param === 'temperatura') {
-              temps.push({ 
-                  data : getData(param, m)[1],
-                  label : `Tacha ${m}`,
-                  borderColor : '#' + randomColor(),
-                  backgorundColor : '#' + randomColor()
-              });
-          }
-          if (param === 'humedad') {
-              hums.push({ 
-                  data : getData(param, m)[1],
-                  label : `Tacha ${m}`,
-                  borderColor : '#' + randomColor(),
-                  backgorundColor : '#' + randomColor()
-              });
-          }
-          if (param === 'aceleracion') {
-              acels.push({ 
-                  data : getData(param, m)[1],
-                  label : `Tacha ${m}`,
-                  borderColor : '#' + randomColor(),
-                  backgorundColor : '#' + randomColor()
-              });
-          }
-      }
-  })
-}
+['M_Temperatura', 'M_Humedad', 'M_Aceleracion'].forEach((param) => {
+    for (let m = 1; m <= numTachas; m++) {
+        if (param === 'M_Temperatura') {
+            temps.push({ 
+                data : getData(param, m)[1],
+                label : `Tacha ${m}`,
+                borderColor : '#' + randomColor(),
+                backgorundColor : '#' + randomColor()
+            });
+        }
+        if (param === 'M_Humedad') {
+            hums.push({ 
+                data : getData(param, m)[1],
+                label : `Tacha ${m}`,
+                borderColor : '#' + randomColor(),
+                backgorundColor : '#' + randomColor()
+            });
+        }
+        if (param === 'M_Aceleracion') {
+            acels.push({ 
+                data : getData(param, m)[1],
+                label : `Tacha ${m}`,
+                borderColor : '#' + randomColor(),
+                backgorundColor : '#' + randomColor()
+            });
+        }
+    }
+  }
+)
 
 const GlobalLineChartPlot = (props) => {
 
   let dataset = [];
   let title = '';
-
-  useEffect(() => {
-    setInterval(() => { obtenerDatos() }, 5000);
-  }, []);
 
   if (props.tempSel) {
     dataset = temps;
@@ -88,14 +82,12 @@ const GlobalLineChartPlot = (props) => {
   };
   
   const data = {
-    labels : labels[0],
-    datasets : dataset,
+    labels : labels[0].slice(props.inicioFecha, props.finalFecha),
+    datasets : dataset.slice(props.inicioTachas, props.finalTachas),
   };
 
-  console.log(data);
-
   return(
-      <Line options={options} data={data}/>
+    <Line options={options} data={data}></Line>
   ) 
 }
 

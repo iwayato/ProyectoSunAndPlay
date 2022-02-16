@@ -4,9 +4,11 @@ const config = require('../config');
 
 async function getMultiple(page = 1, parametro, id){
 
-  const offset = helper.getOffset(page, config.listPerPage);
+  //const offset = helper.getOffset(page, config.listPerPage);
+  //LIMIT ${offset},${config.listPerPage}
+
   const rows = await db.query(
-    `SELECT * FROM ${parametro} WHERE id = ${id} LIMIT ${offset},${config.listPerPage}`
+    `SELECT * FROM ${parametro} WHERE id = ${id}`
   );
   const data = helper.emptyOrRows(rows);
   //const meta = {page};

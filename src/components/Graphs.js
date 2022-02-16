@@ -58,6 +58,29 @@ const Graphs = () => {
 
                 
                 <Link to="/" style={{ textDecoration: 'none' }} className={classes.Padding}>Página principal</Link>
+
+                <label className={classes.LabelRadioInput}>Temperatura : </label>
+                <input
+                    type='radio'
+                    name='param'
+                    onChange={setTempHandler}
+                >
+                </input>
+                <label className={classes.LabelRadioInput}>Humedad: </label>
+                <input 
+                    type='radio'
+                    name='param'
+                    onChange={setHumHandler}
+                >
+                </input>
+
+                <label className={classes.LabelRadioInput}>Aceleración: </label>
+                <input 
+                    type='radio' 
+                    name='param'
+                    onChange={setAcelHandler}
+                > 
+                </input>
                 
                 <label className={classes.CustomLabel}>Seleccione las tachas a mostrar :</label>
 
@@ -101,29 +124,6 @@ const Graphs = () => {
                     value={finalFecha}
                     onChange={fechaFinalHandler}
                     min={2}>       
-                </input>
-
-                <label className={classes.LabelRadioInput}>Temperatura : </label>
-                <input
-                    type='radio'
-                    name='param'
-                    onChange={setTempHandler}
-                >
-                </input>
-                <label className={classes.LabelRadioInput}>Humedad: </label>
-                <input 
-                    type='radio'
-                    name='param'
-                    onChange={setHumHandler}
-                >
-                </input>
-
-                <label className={classes.LabelRadioInput}>Aceleración: </label>
-                <input 
-                    type='radio' 
-                    name='param'
-                    onChange={setAcelHandler}
-                > 
                 </input>
 
             </div>

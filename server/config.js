@@ -1,10 +1,10 @@
 const config = {
     db: {
-      host: "localhost",
+      host: "mysql-1.c3t4nwdrq2li.us-east-1.rds.amazonaws.com",
       port : 3306,
-      user: "root",
-      password: "Yoshifumi753@",
-      database: "test",
+      user: "admin",
+      password: "sunandplay",
+      database: "probando",
     },
     listPerPage: 1000,
 };
