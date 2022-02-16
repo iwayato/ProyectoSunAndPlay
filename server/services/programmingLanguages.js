@@ -3,7 +3,7 @@ const helper = require('../helper');
 const config = require('../config');
 
 // Actualmente la única función que requiere la aplicación
-async function getMultiple(page = 1, parametro, id){
+async function getMultiple(parametro, id){
 
   const rows = await db.query(
     `SELECT * FROM ${parametro} WHERE id = ${id}`
@@ -16,6 +16,7 @@ async function getMultiple(page = 1, parametro, id){
 }
 
 // Las siguientes funciones no estan siendo utilizadas
+// Contienen errores
 async function create(programmingLanguage){
 
   const result = await db.query(

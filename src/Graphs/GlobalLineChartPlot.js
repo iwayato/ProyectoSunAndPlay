@@ -1,69 +1,32 @@
 import React from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import getData from "../components/getData";
+import obtenerDatos from './obtenerDatos'
 
 ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
 
-const numTachas = 21;
-let labels = [];
-let temps = [];
-let hums = [];
-let acels = [];
-
-const randomColor = () => {
-  return Math.floor(Math.random()*16777215).toString(16);
-}
-
-labels.push(getData('M_Temperatura', 1)[0]);
-
-
-['M_Temperatura', 'M_Humedad', 'M_Aceleracion'].forEach((param) => {
-    for (let m = 1; m <= numTachas; m++) {
-        if (param === 'M_Temperatura') {
-            temps.push({ 
-                data : getData(param, m)[1],
-                label : `Tacha ${m}`,
-                borderColor : '#' + randomColor(),
-                backgorundColor : '#' + randomColor()
-            });
-        }
-        if (param === 'M_Humedad') {
-            hums.push({ 
-                data : getData(param, m)[1],
-                label : `Tacha ${m}`,
-                borderColor : '#' + randomColor(),
-                backgorundColor : '#' + randomColor()
-            });
-        }
-        if (param === 'M_Aceleracion') {
-            acels.push({ 
-                data : getData(param, m)[1],
-                label : `Tacha ${m}`,
-                borderColor : '#' + randomColor(),
-                backgorundColor : '#' + randomColor()
-            });
-        }
-    }
-  }
-)
-
 const GlobalLineChartPlot = (props) => {
 
+  console.log(obtenerDatos());
+
   let dataset = [];
+  let labels = [];
   let title = '';
 
   if (props.tempSel) {
-    dataset = temps;
+    dataset = [];
     title = 'Temperatura tachas instaladas';
+    labels = [];
   }
   if (props.humSel) {
-    dataset = hums;
+    dataset = [];
     title = 'Humedad tachas instaladas';
+    labels = [];
   }
   if (props.acelSel) {
-    dataset = acels;
+    dataset = [];
     title = 'Aceleración tachas instaladas';
+    labels = [];
   }
     
   const options = {
@@ -82,7 +45,7 @@ const GlobalLineChartPlot = (props) => {
   };
   
   const data = {
-    labels : labels[0].slice(props.inicioFecha, props.finalFecha),
+    labels : labels,
     datasets : dataset.slice(props.inicioTachas, props.finalTachas),
   };
 

@@ -32,7 +32,13 @@ const HumMap = (props) => {
                     key={tacha.id}
                     position={[tacha.location.latitud, tacha.location.longitud]}>
                     <Popup closeOnClick={false}>
-                        <LineChartPlot data={getData('humedad', tacha.id + 1)[1]} labels={getData('humedad', tacha.id + 1)[0]} varName='Humedad' borderColor='blue' backgroundColor='blue'></LineChartPlot>
+                        <LineChartPlot
+                            data={getData('M_Humedad', tacha.id + 1)[1]} 
+                            labels={getData('M_Humedad', tacha.id + 1)[0]} 
+                            varName='Humedad' 
+                            borderColor='blue' 
+                            backgroundColor='blue'>
+                        </LineChartPlot>
                     </Popup>
                     <Tooltip direction="bottom" opacity={1} sticky = {true}>
                         ID: {tacha.id} <br></br>
