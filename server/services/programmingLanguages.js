@@ -2,23 +2,20 @@ const db = require('./db');
 const helper = require('../helper');
 const config = require('../config');
 
+// Actualmente la única función que requiere la aplicación
 async function getMultiple(page = 1, parametro, id){
-
-  //const offset = helper.getOffset(page, config.listPerPage);
-  //LIMIT ${offset},${config.listPerPage}
 
   const rows = await db.query(
     `SELECT * FROM ${parametro} WHERE id = ${id}`
   );
   const data = helper.emptyOrRows(rows);
-  //const meta = {page};
 
   return {
-    data,
-    //meta
+    data
   }
 }
 
+// Las siguientes funciones no estan siendo utilizadas
 async function create(programmingLanguage){
 
   const result = await db.query(
