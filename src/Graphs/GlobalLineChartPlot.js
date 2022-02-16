@@ -3,9 +3,11 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 import { Line } from 'react-chartjs-2';
 import getData from "../components/getData";
 
-//Boton de reinicio
-
 ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
+
+const randomColor = () => {
+  return Math.floor(Math.random()*16777215).toString(16);
+}
 
 const numTachas = 21;
 const labels = [];
@@ -21,24 +23,24 @@ const acels = [];
             temps.push({ 
                 data : getData(param, m)[1],
                 label : `Tacha ${m}`,
-                borderColor : '#' + Math.floor(Math.random()*16777215).toString(16),
-                backgorundColor : '#' + Math.floor(Math.random()*16777215).toString(16)
+                borderColor : '#' + randomColor(),
+                backgorundColor : '#' + randomColor()
             });
         }
         if (param === 'humedad') {
             hums.push({ 
                 data : getData(param, m)[1],
                 label : `Tacha ${m}`,
-                borderColor : '#' + Math.floor(Math.random()*16777215).toString(16),
-                backgorundColor : '#' + Math.floor(Math.random()*16777215).toString(16)
+                borderColor : '#' + randomColor(),
+                backgorundColor : '#' + randomColor()
             });
         }
         if (param === 'aceleracion') {
             acels.push({ 
                 data : getData(param, m)[1],
                 label : `Tacha ${m}`,
-                borderColor : '#' + Math.floor(Math.random()*16777215).toString(16),
-                backgorundColor : '#' + Math.floor(Math.random()*16777215).toString(16)
+                borderColor : '#' + randomColor(),
+                backgorundColor : '#' + randomColor()
             });
         }
     }
