@@ -1,10 +1,9 @@
 import { Marker, Popup, Tooltip } from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-markercluster";
-import LineChartPlot from "../Graphs/LineChartPlot";
-import getData from "./getData";
 import { hum_bajo } from "../Icons/hum_bajo";
 import { hum_medio } from "../Icons/hum_medio";
 import { hum_alto } from "../Icons/hum_alto";
+import GetData from './GetData';
 
 const color_selector = (hum) => {
 
@@ -32,13 +31,13 @@ const HumMap = (props) => {
                     key={tacha.id}
                     position={[tacha.location.latitud, tacha.location.longitud]}>
                     <Popup closeOnClick={false}>
-                        <LineChartPlot
-                            data={getData('M_Humedad', tacha.id + 1)[1]} 
-                            labels={getData('M_Humedad', tacha.id + 1)[0]} 
-                            varName='Humedad' 
-                            borderColor='blue' 
-                            backgroundColor='blue'>
-                        </LineChartPlot>
+                        <GetData
+                            parametro={'M_Humedad'}
+                            id={tacha.id + 1}
+                            varName={'humedades'}
+                            borderColor={'lightblue'}
+                            backgroundColor={'lightblue'}>
+                        </GetData>
                     </Popup>
                     <Tooltip direction="bottom" opacity={1} sticky = {true}>
                         ID: {tacha.id} <br></br>

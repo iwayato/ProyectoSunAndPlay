@@ -11,7 +11,12 @@ const LineChartPlot = (props) => {
 
     responsive: true,
 
-    plugins: { title: { display: false, text: 'Temperatura' } },
+    plugins: {
+      title: {
+        display: true,
+        text: 'Últimas 10 ' + props.varName + 's de la tacha ' + (props.id - 1)},
+      legend: { display: false }
+    },
 
     maintainAspectRatio: false
 

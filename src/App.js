@@ -18,6 +18,7 @@ class App extends Component {
 
   componentDidMount() {
 
+    //Referencias para RealTime Database (Firebase)
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
     const dbRef = ref(db, 'data/');

@@ -1,10 +1,9 @@
 import { Marker, Popup, Tooltip } from "react-leaflet"
 import MarkerClusterGroup from "react-leaflet-markercluster";
-import LineChartPlot from "../Graphs/LineChartPlot";
-import getData from "./getData";
 import { vib_bajo } from "../Icons/vib_bajo";
 import { vib_medio } from "../Icons/vib_medio";
 import { vib_alto } from "../Icons/vib_alto";
+import GetData from './GetData';
 
 const color_selector = (acel) => {
 
@@ -32,13 +31,13 @@ const VibMap = (props) => {
                     key={tacha.id}
                     position={[tacha.location.latitud, tacha.location.longitud]}>
                     <Popup closeOnClick={false}>
-                        <LineChartPlot
-                            data={getData('M_Aceleracion', tacha.id + 1)[1]} 
-                            labels={getData('M_Aceleracion', tacha.id + 1)[0]} 
-                            varName='Vibraciones' 
-                            borderColor='orange' 
-                            backgroundColor='orange'>
-                        </LineChartPlot>
+                        <GetData
+                            parametro={'M_Aceleracion'}
+                            id={tacha.id + 1}
+                            varName={'aceleraciones'}
+                            borderColor={'orange'}
+                            backgroundColor={'orange'}>
+                        </GetData>
                     </Popup>
                     <Tooltip direction="bottom" opacity={1} sticky = {true}>
                         ID: {tacha.id} <br></br>
