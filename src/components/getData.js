@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import LineChartPlot from "../Graphs/LineChartPlot";
-import classes from '../Graphs/Plot.module.css'
+import classes from './GetData.module.css'
 
 const GetData = (props) => {
 
@@ -9,48 +9,53 @@ const GetData = (props) => {
     const [data, setData] = useState([]);
     const [labels, setLabels] =  useState([]);
 
-    useEffect(() => {
+    const refresh = () => {
 
-        const interval = setInterval(() => {
+        console.log('refresh');
 
-            axios.get(`http://localhost:3001/data/${props.parametro}/${props.id}`).then((response) => {
+        axios.get(`http://localhost:3001/data/${props.parametro}/${props.id}`).then((response) => {
 
-                for (var key in response.data.data[0]) {
-                    if (response.data.data[0].hasOwnProperty(key)){
-                        if (key !== 'id') {
-                            setLabels(labels => [...labels, key])
-                            setData(data => [...data, response.data.data[0][key]])
-                        }
+            for (var key in response.data.data[0]) {
+                if (response.data.data[0].hasOwnProperty(key)){
+                    if (key !== 'id') {
+                        setLabels(labels => [...labels, key])
+                        setData(data => [...data, response.data.data[0][key]])
                     }
                 }
+            }
 
-                setLoading(false)
+            setLoading(false);
 
-            });
+        })
+    };
 
-        }, 240000);
-
-        return () => {clearInterval(interval)};
-
-    }, [props.parametro, props.id]);
+    useEffect(refresh, [props.id, props.parametro]);
 
     if (isLoading) {
         return(
             <div className={classes.LinePlot}>
-                Cargando datos...
+                <h1 className={classes.h1}>
+                    Cargando datos ...
+                </h1>
             </div>
         ) 
     }
 
     return(
-        <LineChartPlot
-            id={props.id}
-            data={data.slice(-10)}
-            labels={labels.slice(-10)}
-            varName={props.varName}
-            borderColor={props.borderColor}
-            backgroundColor={props.backgroundColor}>
-        </LineChartPlot>
+        <div className={classes.Div}>
+            <LineChartPlot
+                id={props.id}
+                data={data.slice(-10)}
+                labels={labels.slice(-10)}
+                varName={props.varName}
+                borderColor={props.borderColor}
+                backgroundColor={props.backgroundColor}>
+            </LineChartPlot>
+            <br></br>
+            <button onClick={refresh}>
+                Actualizar datos
+            </button>
+        </div>
     )
 
 }
