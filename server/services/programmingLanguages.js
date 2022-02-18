@@ -3,11 +3,20 @@ const helper = require('../helper');
 const config = require('../config');
 
 // Actualmente la única función que requiere la aplicación
-async function getMultiple(parametro, id){
+async function getMultiple(parametro, id, global, offset, limit){
 
-  const rows = await db.query(
-    `SELECT * FROM ${parametro} WHERE id = ${id}`
-  );
+  let rows = {};
+
+  if (global === 'true') {
+    rows = await db.query(
+      `SELECT * FROM ${parametro} LIMIT ${offset}, ${limit}`
+    );
+  } else {
+    rows = await db.query(
+      `SELECT * FROM ${parametro} WHERE id = ${id}`
+    );
+  }
+
   const data = helper.emptyOrRows(rows);
 
   return {

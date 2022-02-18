@@ -56,7 +56,7 @@ const HeatMap = (props) => {
                         <GetData
                             parametro={'M_Temperatura'}
                             id={props.infoTachas[locationsOneLine.indexOf(location)].id + 1}
-                            varName={'temperaturas'}
+                            varName={'Temperatura'}
                             borderColor={'red'}
                             backgroundColor={'red'}>
                         </GetData>

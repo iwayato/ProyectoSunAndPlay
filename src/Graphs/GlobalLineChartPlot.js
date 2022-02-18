@@ -1,53 +1,42 @@
 import React from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import GetDataGlobal from './GetDataGlobal';
 
 ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
 
+const randomColor = () => {
+  return '#' + Math.floor(Math.random()*16777215).toString(16);
+}
+
 const GlobalLineChartPlot = (props) => {
 
-  let dataset = [];
-  let labels = [];
   let title = '';
+  let parametro = '';
 
   if (props.tempSel) {
-    dataset = [];
     title = 'Temperatura tachas instaladas';
-    labels = [];
+    parametro = 'M_Temperatura';
   }
   if (props.humSel) {
-    dataset = [];
     title = 'Humedad tachas instaladas';
-    labels = [];
+    parametro = 'M_Humedad';
   }
   if (props.acelSel) {
-    dataset = [];
     title = 'Aceleración tachas instaladas';
-    labels = [];
+    parametro = 'M_Aceleracion';
   }
-    
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        display : false,
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: title,
-      },
-    },
-    maintainAspectRatio: false
-  };
   
-  const data = {
-    labels : labels,
-    datasets : dataset.slice(props.inicioTachas, props.finalTachas),
-  };
-
   return(
-    <Line options={options} data={data}></Line>
+    <GetDataGlobal
+      parametro={parametro}
+      title={title}
+      borderColor={randomColor()}
+      backgroundColor={randomColor()}
+      inicioTachas={props.inicioTachas} 
+      finalTachas={props.finalTachas}
+      inicioFecha={props.inicioFecha}
+      finalFecha={props.finalFecha}>
+    </GetDataGlobal>
   ) 
 }
 

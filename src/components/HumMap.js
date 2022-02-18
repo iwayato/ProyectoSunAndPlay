@@ -34,7 +34,7 @@ const HumMap = (props) => {
                         <GetData
                             parametro={'M_Humedad'}
                             id={tacha.id + 1}
-                            varName={'humedades'}
+                            varName={'Humedad'}
                             borderColor={'lightblue'}
                             backgroundColor={'lightblue'}>
                         </GetData>
