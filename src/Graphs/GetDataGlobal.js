@@ -17,11 +17,11 @@ const GetDataGlobal = (props) => {
                 for (var fecha in response.data.data[tacha]) {
                     if (fecha !== 'id') {
                         setLabels(labels => [...labels, fecha]);
-                        setData(data => [...data, response.data.data[tacha]])
+                        setData(data => [...data, fecha[tacha]]);
                     }
                 }
             }
-            
+
             setLoading(false);
 
         })
@@ -44,7 +44,7 @@ const GetDataGlobal = (props) => {
         <div className={classes.Div}>
             <LineChartGlobal
                 data={data}
-                labels={labels.slice(props.inicioFecha, props.finalFechas)}
+                labels={labels.slice(props.inicioFecha, props.finalFecha)}
                 title={props.title}
                 borderColor={props.borderColor}
                 backgroundColor={props.backgroundColor}>

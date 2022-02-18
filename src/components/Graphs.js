@@ -2,9 +2,6 @@ import { Link } from "react-router-dom";
 import classes from './Graph.module.css';
 import GlobalLineChartPlot from "../Graphs/GlobalLineChartPlot";
 import { useState } from "react";
-// import GlobalScatterChartPlot from "../Graphs/GlobalScatterChartPlot";
-// import GlobalVerticalBarPlot from "../Graphs/GlobalVerticalBarPlot";
-// import GlobalBubbleChartPlot from "../Graphs/GlobalBubbleChartPlot";
 
 const Graphs = () => {
 

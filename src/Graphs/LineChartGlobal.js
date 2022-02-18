@@ -7,45 +7,45 @@ ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, 
 
 const LineChartPlotGlobal = (props) => {
 
-  const options = {
+    const options = {
 
-    responsive: true,
+        responsive: true,
 
-    plugins: {
-      title: {
-        display: true,
-        text: props.title
-    },
-      legend: { display: false }
-    },
+        plugins: {
+        title: {
+            display: true,
+            text: props.title
+        },
+        legend: { display: false }
+        },
 
-    maintainAspectRatio: false
+        maintainAspectRatio: false
 
-  };
+    };
   
-  const labels = props.labels;
+    const labels = props.labels;
   
-  const data = {
-    labels,
-    datasets: [
+    const data = {
+        labels,
+        datasets: [
 
-      {
-        label: 'que va aca?',
-        data: props.data,
-        borderColor: props.borderColor,
-        backgroundColor: props.backgroundColor,
-      },
+        {
+            label: 'que va aca?',
+            data: props.data,
+            borderColor: props.borderColor,
+            backgroundColor: props.backgroundColor,
+        },
 
-    ],
-  };
+        ],
+    };
 
-  return(
+    return(
 
-    <div className={classes.LinePlot}>
-      <Line options={options} data={data}/>
-    </div>
+        <div className={classes.LinePlot}>
+            <Line options={options} data={data}/>
+        </div>
 
-  ) 
+    ) 
 }
 
 export default LineChartPlotGlobal;
