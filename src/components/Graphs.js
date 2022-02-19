@@ -78,7 +78,18 @@ const Graphs = () => {
                 > 
                 </input>
                 
-                <label className={classes.CustomLabel}>Mostrar</label>
+                
+                <label className={classes.CustomLabel}>Seleccione las tachas a mostrar :</label>
+                <input
+                    className={classes.Input}
+                    type='number'
+                    name='tachas_sel'
+                    value={inicioTachas}
+                    onChange={tachasInicioHandler}
+                    min={0}>       
+                </input>
+
+                <label>a</label>
 
                 <input
                     className={classes.Input}
@@ -87,17 +98,6 @@ const Graphs = () => {
                     value={finalTachas}
                     onChange={tachasFinalHandler}
                     min={1}>       
-                </input>
-
-                <label>tachas a partir de la tacha</label>
-
-                <input
-                    className={classes.Input}
-                    type='number'
-                    name='tachas_sel'
-                    value={inicioTachas}
-                    onChange={tachasInicioHandler}
-                    min={0}>       
                 </input>
 
                 <label className={classes.Label}>Seleccione las fechas a mostrar :</label>
