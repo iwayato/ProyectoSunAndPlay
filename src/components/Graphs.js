@@ -8,7 +8,7 @@ const Graphs = () => {
     const [inicioTachas, setInicioTachas] = useState(0);
     const [finalTachas, setFinalTachas] = useState(1);
     const [inicioFecha, setInicioFecha] = useState(0);
-    const [finalFecha, setFinalFecha] = useState(2);
+    const [finalFecha, setFinalFecha] = useState(1);
     const [temp, setTemp] = useState(false);
     const [hum, setHum] = useState(false);
     const [acel, setAcel] = useState(false);
@@ -119,7 +119,7 @@ const Graphs = () => {
                     name='tachas_sel'
                     value={finalFecha}
                     onChange={fechaFinalHandler}
-                    min={2}>       
+                    min={1}>       
                 </input>
 
             </div>
