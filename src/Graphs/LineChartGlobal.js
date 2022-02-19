@@ -22,23 +22,23 @@ const LineChartPlotGlobal = (props) => {
         maintainAspectRatio: false
 
     };
-  
-    const labels = props.labels;
-  
+
+    const labels = props.labels[0];
+
     const data = {
         labels,
-        datasets: [
-
-        {
-            label: 'que va aca?',
-            data: props.data,
-            borderColor: props.borderColor,
-            backgroundColor: props.backgroundColor,
-        },
-
-        ],
+        datasets: [],
     };
 
+    for (var tacha in props.data) {
+        data.datasets.push({
+            label: 'Valor',
+            data: props.data[tacha],
+            borderColor: props.borderColor,
+            backgroundColor: props.backgroundColor,
+        })
+    }
+  
     return(
 
         <div className={classes.LinePlot}>

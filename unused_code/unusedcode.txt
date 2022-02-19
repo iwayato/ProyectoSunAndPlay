@@ -689,3 +689,34 @@ const GetData = (props) => {
 }
 
 export default GetData;
+
+
+const randomColor = () => {
+  return '#' + Math.floor(Math.random()*16777215).toString(16);
+}
+
+
+        for (var key in response.data.data[0]) {
+            if (response.data.data[0].hasOwnProperty(key)){
+                if (key !== 'id') {
+                  labels.push(key);
+                  datasets.push(response.data.data[0][key])
+                }
+            }
+        }
+
+
+    const data = {
+        labels,
+        datasets: [
+
+        {
+            label: 'Valor',
+            data: props.data,
+            borderColor: props.borderColor,
+            backgroundColor: props.backgroundColor,
+        },
+
+        ],
+    };
+

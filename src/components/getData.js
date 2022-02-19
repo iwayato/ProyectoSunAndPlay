@@ -11,8 +11,6 @@ const GetData = (props) => {
 
     const refresh = () => {
 
-        console.log('refresh');
-
         axios.get(`http://localhost:3001/data/${props.parametro}/${props.id}/false/1/1`).then((response) => {
 
             for (var key in response.data.data[0]) {

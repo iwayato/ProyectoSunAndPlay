@@ -102,14 +102,16 @@ const Submit = (l, off, v, a, r, t) => {
 
             if (rangos.length === 1) {
                 set(ref(db, 'downlink/' + rangos[0]), {
-                    color : color
+                    color : color,
+                    status : "U"
                 });
             }
             else {
                 for (let i = 0; i <= margen; i++) {
                     ids.push(String(rango_inf + i));
                     set(ref(db, 'downlink/' + ids[i]), {
-                        color : color
+                        color : color,
+                        status : "U"
                     });
                 }
             }
