@@ -48,6 +48,10 @@ A continuación, se presentan diagramas para ejemplificar mejor la arquitectura 
 
 ![image](https://user-images.githubusercontent.com/68484788/153691501-51dc0079-a607-4dc0-8f3b-3d2f9c5d3dff.png)
 
+## Semana 7 : 14/02/22 al 18/02/22
+
+Se ayuda en la implementación de una base de datos MySQL para pruebas avanzadas que recibe datos simulados periódicamente siguiendo la misma estructura que la comentada en la semana anterior, aunque los datos ya no son actualizados utilizando como detonante las actualizaciones de los datos en la base de datos de Firebase. Se creó un código que permite actualizar los datos que se muestran en los Pop-ups de manera manual, la ventaja de esta forma frente a una automática es el ahorro de recursos del navegador ya sólo se actualiza la información de la tacha de interés mientras que el resto no se actualizará hasta que el usuario así lo desee, permitiendo ocupar la cantidad justa de recursos del navegador. Por otra parte, se comienza a aplicar la misma lógica comentada anteriormente en los gráficos que muestran la información de todas las tachas juntas. Debido a esto se modificó la API desarrollada para permitir hacer llamados que tengan como respuesta mayor cantidad de información (anteriormente se hacía un llamado por tacha), la cual será graficada una vez que se reciba el total de los datos solicitados.
+
 
 
 
