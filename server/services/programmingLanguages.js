@@ -8,13 +8,9 @@ async function getMultiple(parametro, id, global, offset, limit){
   let rows = {};
 
   if (global === 'true') {
-    rows = await db.query(
-      `SELECT * FROM ${parametro} LIMIT ${offset}, ${limit}`
-    );
+    rows = await db.query(`SELECT * FROM ${parametro} LIMIT ${offset}, ${limit}`);
   } else {
-    rows = await db.query(
-      `SELECT * FROM ${parametro} WHERE id = ${id}`
-    );
+    rows = await db.query(`SELECT * FROM ${parametro} WHERE id = ${id}`);
   }
 
   const data = helper.emptyOrRows(rows);
