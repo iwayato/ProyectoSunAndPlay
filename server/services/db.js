@@ -5,13 +5,7 @@ async function query(sql, params) {
 
     const connection = await mysql.createConnection(config.db);
     const [results, ] = await connection.execute(sql, params);
-
-    connection.end(function(err) {
-        if (err) {
-          return console.log('error:' + err.message);
-        }
-        console.log('Close the database connection.');
-    });
+    connection.end();
 
     return results;
 

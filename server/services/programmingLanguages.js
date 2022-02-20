@@ -10,6 +10,7 @@ async function getMultiple(parametro, id, global, offset, limit){
   if (global === 'true') {
     rows = await db.query(`SELECT * FROM ${parametro} LIMIT ${offset}, ${limit}`);
   } else {
+    console.log('in else');
     rows = await db.query(`SELECT * FROM ${parametro} WHERE id = ${id}`);
   }
 
