@@ -11,7 +11,7 @@ const GetData = (props) => {
 
     const refresh = () => {
 
-        axios.get(`http://localhost:3001/data/${props.parametro}/${props.id}/false/1/1`).then((response) => {
+        axios.get(`https://proyecto-sun-and-play-server.herokuapp.com/data/${props.parametro}/${props.id}/false/1/1`).then((response) => {
 
             for (var key in response.data.data[0]) {
                 if (response.data.data[0].hasOwnProperty(key)){

@@ -5,7 +5,7 @@ const gettingData = (parametro, id) => {
     let dates = [];
     let values = [];
 
-    axios.get(`http://localhost:3001/data/${parametro}/${id}/false/1/1`).then((response) => {
+    axios.get(`https://proyecto-sun-and-play-server.herokuapp.com/data/${parametro}/${id}/false/1/1`).then((response) => {
 
         let data  = response.data.data[0];
 
