@@ -16,7 +16,9 @@ const GetData = (props) => {
             for (var key in response.data.data[0]) {
                 if (response.data.data[0].hasOwnProperty(key)){
                     if (key !== 'id') {
+                        // eslint-disable-next-line
                         setLabels(labels => [...labels, key])
+                        // eslint-disable-next-line
                         setData(data => [...data, response.data.data[0][key]])
                     }
                 }
