@@ -270,18 +270,18 @@ const SetLuzCard = (props) => {
                     <div className={classes.temperatura_alta}>81 - 100</div>
                 </div>
 
-                <h4 className={classes.h44}>Rangos humedad</h4>
-                <div className={classes.Container}>
-                    <div className={classes.humedad_baja}>0 - 60</div>
-                    <div className={classes.humedad_media}>61 - 80</div>
-                    <div className={classes.humedad_alta}>81 - 100</div>
-                </div>
-
                 <h4 className={classes.h44}>Rango vibraciones</h4>
-                <div className={classes.ContainerFinal}>
+                <div className={classes.Container}>
                     <div className={classes.vibraciones_baja}>0 - 6.0</div>
                     <div className={classes.vibraciones_media}>6.1 - 8.0</div>
                     <div className={classes.vibraciones_alta}>8.1 - 10.0</div>
+                </div>
+
+                <h4 className={classes.h44}>Rangos humedad</h4>
+                <div className={classes.ContainerFinal}>
+                    <div className={classes.humedad_baja}>0 - 60</div>
+                    <div className={classes.humedad_media}>61 - 80</div>
+                    <div className={classes.humedad_alta}>81 - 100</div>
                 </div>
 
             </div>

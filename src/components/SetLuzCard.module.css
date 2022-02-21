@@ -126,7 +126,7 @@
 .humedad_baja {
     width: 33.4%;
     height: 20px;
-    background-color: #00ffe1;
+    background-color: #00FFCC;
     text-align: center;
     color: black;
     border: 1px solid black;
@@ -136,7 +136,7 @@
 .humedad_media {
     width: 33.3333%;
     height: 20px;
-    background-color: #00aeff;
+    background-color: #61BBD2;
     text-align: center;
     color: black;
     margin-left: 33.4%;
@@ -148,7 +148,7 @@
 .humedad_alta {
     width: 33.3333%;
     height: 20px;
-    background-color: #001aff;
+    background-color: #0066FF;
     text-align: center;
     color: black;
     margin-left: 66.7%;
@@ -160,7 +160,7 @@
 .vibraciones_baja {
     width: 33.4%;
     height: 20px;
-    background-color: #ffdd00;
+    background-color: #88AA00;
     text-align: center;
     color: black;
     border: 1px solid black;
@@ -170,7 +170,7 @@
 .vibraciones_media {
     width: 33.3333%;
     height: 20px;
-    background-color: #ff9900;
+    background-color: #D4AA00;
     text-align: center;
     color: black;
     margin-left: 33.4%;
@@ -182,7 +182,7 @@
 .vibraciones_alta {
     width: 33.3333%;
     height: 20px;
-    background-color: #ff4800;
+    background-color: #ff6600;
     text-align: center;
     color: black;
     margin-left: 66.7%;

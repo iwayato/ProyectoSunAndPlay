@@ -34,7 +34,7 @@ const VibMap = (props) => {
                         <GetData
                             parametro={'M_Aceleracion'}
                             id={tacha.id + 1}
-                            varName={'Aceleración'}
+                            varName={'Aceleraciones'}
                             borderColor={'orange'}
                             backgroundColor={'orange'}>
                         </GetData>

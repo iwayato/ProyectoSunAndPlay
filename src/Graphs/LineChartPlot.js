@@ -14,7 +14,7 @@ const LineChartPlot = (props) => {
     plugins: {
       title: {
         display: true,
-        text: 'Últimas 10 ' + props.varName + 's de la tacha ' + (props.id - 1)},
+        text: 'Últimas 10 ' + props.varName + ' de la tacha ' + (props.id - 1)},
       legend: { display: false }
     },
 
