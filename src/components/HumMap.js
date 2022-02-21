@@ -3,6 +3,7 @@ import MarkerClusterGroup from "react-leaflet-markercluster";
 import { hum_bajo } from "../Icons/hum_bajo";
 import { hum_medio } from "../Icons/hum_medio";
 import { hum_alto } from "../Icons/hum_alto";
+import { NoDataIcon } from "../Icons/NoDataIcon";
 import GetData from './GetData';
 
 const color_selector = (hum) => {
@@ -17,7 +18,7 @@ const color_selector = (hum) => {
         return hum_alto;
     }
     else {
-        return;
+        return NoDataIcon;
     }
 }
 

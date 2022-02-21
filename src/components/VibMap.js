@@ -3,6 +3,7 @@ import MarkerClusterGroup from "react-leaflet-markercluster";
 import { vib_bajo } from "../Icons/vib_bajo";
 import { vib_medio } from "../Icons/vib_medio";
 import { vib_alto } from "../Icons/vib_alto";
+import { NoDataIcon } from "../Icons/NoDataIcon";
 import GetData from './GetData';
 
 const color_selector = (acel) => {
@@ -17,7 +18,7 @@ const color_selector = (acel) => {
         return vib_alto;
     }
     else {
-        return;
+        return NoDataIcon;
     }
 }
 
