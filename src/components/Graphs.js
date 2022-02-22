@@ -6,7 +6,7 @@ import { useState } from "react";
 const Graphs = () => {
 
     const [inicioTachas, setInicioTachas] = useState(0);
-    const [finalTachas, setFinalTachas] = useState(2);
+    const [finalTachas, setFinalTachas] = useState(1);
     const [inicioFecha, setInicioFecha] = useState(0);
     const [finalFecha, setFinalFecha] = useState(2);
     const [temp, setTemp] = useState(false);
@@ -97,7 +97,7 @@ const Graphs = () => {
                     name='tachas_sel'
                     value={finalTachas}
                     onChange={tachasFinalHandler}
-                    min={2}>       
+                    min={1}>       
                 </input>
 
                 <label className={classes.Label}>Seleccione las fechas a mostrar :</label>

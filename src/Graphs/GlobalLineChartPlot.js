@@ -21,7 +21,7 @@ labels.push(gettingData('M_Temperatura', 1)[0]);
       if (param === 'M_Temperatura') {
           temps.push({ 
               data : gettingData(param, m)[1],
-              label : `Tacha ${m}`,
+              label : `Tacha ${m - 1}`,
               borderColor : randomColor(),
               backgorundColor : randomColor()
           });
@@ -29,7 +29,7 @@ labels.push(gettingData('M_Temperatura', 1)[0]);
       if (param === 'M_Humedad') {
           hums.push({ 
               data : gettingData(param, m)[1],
-              label : `Tacha ${m}`,
+              label : `Tacha ${m - 1}`,
               borderColor : randomColor(),
               backgorundColor : randomColor()
           });
@@ -37,7 +37,7 @@ labels.push(gettingData('M_Temperatura', 1)[0]);
       if (param === 'M_Aceleracion') {
           acels.push({ 
               data : gettingData(param, m)[1],
-              label : `Tacha ${m}`,
+              label : `Tacha ${m - 1}`,
               borderColor : randomColor(),
               backgorundColor : randomColor()
           });
