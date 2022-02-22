@@ -3,7 +3,7 @@ const router = express.Router();
 const programmingLanguages = require('../services/programmingLanguages');
 
 /* GET programming languages. */
-router.get('/:parametro/:id/:global/:offset/:limit', async function(req, res, next) {
+router.get('/:parametro/:id/:global', async function(req, res, next) {
   try {
     res.json(await programmingLanguages.getMultiple(req.params.parametro, req.params.id, req.params.global));
   } catch (err) {
