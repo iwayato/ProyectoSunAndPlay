@@ -3,14 +3,13 @@ const helper = require('../helper');
 const config = require('../config');
 
 // Actualmente la única función que requiere la aplicación
-async function getMultiple(parametro, id, global, offset, limit){
+async function getMultiple(parametro, id, global){
 
   let rows = {};
 
   if (global === 'true') {
-    rows = await db.query(`SELECT * FROM ${parametro} LIMIT ${offset}, ${limit}`);
+    rows = await db.query(`SELECT * FROM ${parametro}`);
   } else {
-    console.log('in else');
     rows = await db.query(`SELECT * FROM ${parametro} WHERE id = ${id}`);
   }
 
@@ -22,7 +21,7 @@ async function getMultiple(parametro, id, global, offset, limit){
 }
 
 // Las siguientes funciones no estan siendo utilizadas
-// Contienen errores
+// Contienen errores con respecto al uso real
 async function create(programmingLanguage){
 
   const result = await db.query(
