@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Graphs from './components/Graphs';
+import DataPlot from './Graphs/DataPlot';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />}></Route>
         <Route path="graficos" element={<Graphs />}></Route>
+        <Route path='test' element={<DataPlot />}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

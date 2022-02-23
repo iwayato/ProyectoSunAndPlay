@@ -177,9 +177,9 @@ const SetLuzCard = (props) => {
                     style={{
                         paddingBottom: "10px",
                         paddingTop: "10px"
-                    }}
-                >
-                    <Link to="/graficos" style={{ textDecoration: 'none' }}>Gráficos</Link>
+                    }}>
+                    <Link to="/graficos" style={{ textDecoration: 'none' }}>Gráficos | </Link>
+                    <Link to="/test" style={{ textDecoration: 'none' }}>Test</Link>
                 </nav>
             </div>
 

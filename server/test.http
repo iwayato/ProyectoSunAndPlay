@@ -1,5 +1,5 @@
 ###
-GET http://localhost:3001/data/M_Temperatura/1/true
+GET http://localhost:3001/data/M_Temperatura/1/false
 
 ###
 POST https://sunandchirpstack.ddns.net:8080/api/devices/2cf7f1203230a466/queue

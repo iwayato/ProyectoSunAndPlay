@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import gettingData from "../components/gettingData";
+import axios from 'axios';
 
 const DataPlot = () => {
 
@@ -13,25 +14,28 @@ const DataPlot = () => {
 
         ['M_Temperatura', 'M_Humedad', 'M_Aceleracion'].forEach((param) => {
 
-            axios.get(`https://proyecto-sun-and-play-server.herokuapp.com/data/${parametro}/1/true/1/1`).then((response) => {
+            axios.get(`https://proyecto-sun-and-play-server.herokuapp.com/data/${param}/1/true`).then((response) => {
 
-                let data  = response.data.data[0];
+                console.log(param, response.data.data);
         
-                for (var key in data) {
-                    if (data.hasOwnProperty(key)){
-                        if (key !== 'id') {
-                            dates.push(key);
-                            values.push(data[key]);
-                        }
-                    }
-                }
-        
-            });
+            })
 
-        }
+        })
 
     }
+
+    useEffect(refresh);
         	
+    console.log(refresh());
+
+    return(
+        <div>
+            <Link to="/" style={{ textDecoration: 'none' }}>Página principal</Link>
+            <br></br>
+            <br></br>
+            aksdjhaksjhd
+        </div>
+    )
 
 };
 
