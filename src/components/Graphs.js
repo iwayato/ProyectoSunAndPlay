@@ -54,7 +54,7 @@ const Graphs = () => {
             <div className={classes.Link}>
 
                 <Link to="/" style={{ textDecoration: 'none' }} className={classes.Padding}>Página principal</Link>
-
+                
                 <label className={classes.LabelRadioInput}>Temperatura : </label>
                 <input
                     type='radio'
@@ -62,6 +62,7 @@ const Graphs = () => {
                     onChange={setTempHandler}
                 >
                 </input>
+
                 <label className={classes.LabelRadioInput}>Humedad: </label>
                 <input 
                     type='radio'
@@ -79,7 +80,7 @@ const Graphs = () => {
                 </input>
                 
                 
-                <label className={classes.CustomLabel}>Seleccione las tachas a mostrar :</label>
+                <label className={classes.Label}>Seleccione las tachas a mostrar :</label>
                 <input
                     className={classes.Input}
                     type='number'
@@ -124,20 +125,16 @@ const Graphs = () => {
 
             </div>
 
-            <div className={classes.Fila}>
-
-                <div className={classes.Plots}>
-                    <GlobalLineChartPlot
-                        inicioTachas={inicioTachas} 
-                        finalTachas={finalTachas}
-                        inicioFecha={inicioFecha}
-                        finalFecha={finalFecha}
-                        tempSel={temp}
-                        humSel={hum}
-                        acelSel={acel}>
-                    </GlobalLineChartPlot>
-                </div>
-
+            <div className={classes.Plots}>
+                <GlobalLineChartPlot
+                    inicioTachas={inicioTachas} 
+                    finalTachas={finalTachas}
+                    inicioFecha={inicioFecha}
+                    finalFecha={finalFecha}
+                    tempSel={temp}
+                    humSel={hum}
+                    acelSel={acel}>
+                </GlobalLineChartPlot>
             </div>
 
         </div>
