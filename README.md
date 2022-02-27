@@ -52,10 +52,6 @@ A continuación, se presentan diagramas para ejemplificar mejor la arquitectura 
 
 Se ayuda en la implementación de una base de datos MySQL para pruebas avanzadas que recibe datos simulados periódicamente siguiendo la misma estructura que la comentada en la semana anterior, aunque los datos ya no son actualizados utilizando como detonante las actualizaciones de los datos en la base de datos de Firebase. Se creó un código que permite actualizar los datos que se muestran en los Pop-ups de manera manual, la ventaja de esta forma frente a una automática es el ahorro de recursos del navegador ya sólo se actualiza la información de la tacha de interés mientras que el resto no se actualizará hasta que el usuario así lo desee, permitiendo ocupar la cantidad justa de recursos del navegador. Por otra parte, se comienza a aplicar la misma lógica comentada anteriormente en los gráficos que muestran la información de todas las tachas juntas. Debido a esto se modificó la API desarrollada para permitir hacer llamados que tengan como respuesta mayor cantidad de información (anteriormente se hacía un llamado por tacha), la cual será graficada una vez que se reciba el total de los datos solicitados.
 
+## Semana 8 : 21/02/22 al 25/02/22
 
-
-
-
-
-
-
+Se finaliza el desarrollo de la plataforma web mejorando detalles visuales, tales como la coordinación de los colores de la leyenda que informa el nivel de cada sensor por parámetro con el color con el cual se representa la tacha en el mapa. Por otra parte, se analiza el comportamiento general de ésta con respecto a la recepción y visualización de la información en la base de datos. En este sentido se encuentran limitaciones en la cantidad de datos que se pueden almacenar en el programa MySQL, ya que permite 4096 columnas como máximo. Debido a esto se implementa el siguiente sistema: una vez que se completan las columnas se crea una nueva tabla para los datos que tenga el mismo nombre que la tabla que se completó (la tabla completada también cambia su nombre), así la plataforma siempre lee datos recientes desde una misma tabla. El principal inconveniente es que esto dificulta la posibilidad de leer datos antiguos dado que se estima que la tabla se completa en alrededor de una semana.
