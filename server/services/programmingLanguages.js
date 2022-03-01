@@ -3,12 +3,13 @@ const helper = require('../helper');
 const config = require('../config');
 
 // Actualmente la única función que requiere la aplicación
-async function getMultiple(parametro, id, global){
+async function getMultiple(parametro, id, numtachas){
 
   let rows = {};
 
-  if (global === 'true') {
-    rows = await db.query(`SELECT * FROM ${parametro}`);
+  if (numtachas === 'true') {
+    rows = await db.query(`SELECT COUNT(*) FROM M_Temperatura`);
+    
   } else {
     rows = await db.query(`SELECT * FROM ${parametro} WHERE id = ${id}`);
   }

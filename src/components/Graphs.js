@@ -6,9 +6,8 @@ import { useState } from "react";
 const Graphs = () => {
 
     const [inicioTachas, setInicioTachas] = useState(0);
-    const [finalTachas, setFinalTachas] = useState(1);
-    const [inicioFecha, setInicioFecha] = useState(0);
-    const [finalFecha, setFinalFecha] = useState(2);
+    const [finalTachas, setFinalTachas] = useState(0);
+    const [numFechas, setNumFechas] = useState(100);
     const [temp, setTemp] = useState(false);
     const [hum, setHum] = useState(false);
     const [acel, setAcel] = useState(false);
@@ -21,12 +20,8 @@ const Graphs = () => {
         setFinalTachas([Number(event.target.value)]);
     }
 
-    const fechaInicioHandler = (event) => {
-        setInicioFecha([Number(event.target.value)]);
-    }
-
-    const fechaFinalHandler = (event) => {
-        setFinalFecha([Number(event.target.value)]);
+    const numFechasHandler = (event) => {
+        setNumFechas([Number(event.target.value)]);
     }
 
     const setTempHandler = () => {
@@ -80,7 +75,7 @@ const Graphs = () => {
                 </input>
                 
                 
-                <label className={classes.Label}>Seleccione las tachas a mostrar :</label>
+                <label className={classes.Label}>Tachas a mostrar :</label>
                 <input
                     className={classes.Input}
                     type='number'
@@ -98,29 +93,18 @@ const Graphs = () => {
                     name='tachas_sel'
                     value={finalTachas}
                     onChange={tachasFinalHandler}
-                    min={1}>       
-                </input>
-
-                <label className={classes.Label}>Seleccione las fechas a mostrar :</label>
-
-                <input
-                    className={classes.Input}
-                    type='number'
-                    name='tachas_sel'
-                    value={inicioFecha}
-                    onChange={fechaInicioHandler}
                     min={0}>       
                 </input>
 
-                <label>Hasta</label>
+                <label className={classes.Label}>Fechas a mostrar :</label>
 
                 <input
                     className={classes.Input}
                     type='number'
                     name='tachas_sel'
-                    value={finalFecha}
-                    onChange={fechaFinalHandler}
-                    min={2}>       
+                    value={numFechas}
+                    onChange={numFechasHandler}
+                    min={0}>       
                 </input>
 
             </div>
@@ -129,8 +113,7 @@ const Graphs = () => {
                 <GlobalLineChartPlot
                     inicioTachas={inicioTachas} 
                     finalTachas={finalTachas}
-                    inicioFecha={inicioFecha}
-                    finalFecha={finalFecha}
+                    numFechas={numFechas}
                     tempSel={temp}
                     humSel={hum}
                     acelSel={acel}>

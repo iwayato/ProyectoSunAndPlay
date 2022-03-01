@@ -859,3 +859,22 @@ const refresh = (parametro, offset, limit) => {
   return [datasets, labels[0]]
 
 };
+
+
+import axios from 'axios';
+
+async function getNumberTachas() {
+
+let dato = {};
+
+await axios.get(`https://proyecto-sun-and-play-server.herokuapp.com/data/M_Temperatura/1/true`).then((response) => {
+    dato = Object.values(response.data.data[0])[0];
+})
+
+return {
+    dato
+}
+
+}
+
+export default getNumberTachas;

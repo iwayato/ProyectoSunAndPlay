@@ -2,17 +2,17 @@ const express = require('express');
 const router = express.Router();
 const programmingLanguages = require('../services/programmingLanguages');
 
-/* GET programming languages. */
-router.get('/:parametro/:id/:global', async function(req, res, next) {
+/* GET */
+router.get('/:parametro/:id/:numtachas', async function(req, res, next) {
   try {
-    res.json(await programmingLanguages.getMultiple(req.params.parametro, req.params.id, req.params.global));
+    res.json(await programmingLanguages.getMultiple(req.params.parametro, req.params.id, req.params.numtachas));
   } catch (err) {
-    console.error(`Error while getting programming languages :`, err.message);
+    console.error(`Error while getting data:`, err.message);
     next(err);
   }
 });
 
-/* POST programming language */
+/* POST */
 router.post('/', async function(req, res, next) {
   try {
     res.json(await programmingLanguages.create(req.body));
@@ -22,7 +22,7 @@ router.post('/', async function(req, res, next) {
   }
 });
 
-/* PUT programming language */
+/* PUT */
 router.put('/:id', async function(req, res, next) {
   try {
     res.json(await programmingLanguages.update(req.params.id, req.body));
@@ -32,7 +32,7 @@ router.put('/:id', async function(req, res, next) {
   }
 });
 
-/* DELETE programming language */
+/* DELETE */
 router.delete('/:id', async function(req, res, next) {
   try {
     res.json(await programmingLanguages.remove(req.params.id));
