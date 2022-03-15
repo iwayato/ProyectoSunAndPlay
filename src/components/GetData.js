@@ -29,7 +29,7 @@ const GetData = (props) => {
         })
     };
 
-    // Permite esperar a que se obtengan todos los datos
+    /* Permite esperar a que se obtengan todos los datos */
     useEffect(refresh, [props.id, props.parametro]);
 
     if (isLoading) {
