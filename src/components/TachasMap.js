@@ -2,7 +2,7 @@ import MarkerClusterGroup from "react-leaflet-markercluster";
 import { Marker, Popup, Tooltip } from "react-leaflet";
 
 const TachasMap = (props) => {
-
+    
     return(
         <MarkerClusterGroup disableClusteringAtZoom={13} maxClusterRadius={60} singleMarkerMode={false}>
             {props.infoTachas.map(tacha => (

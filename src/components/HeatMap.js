@@ -25,7 +25,7 @@ const isOdd = (num) => {
 const HeatMap = (props) => {
 
     let locations = [];
-    let colores =[];
+    let colores = [];
     let locationsOneLine = [];
 
     props.infoTachas.forEach(location => {

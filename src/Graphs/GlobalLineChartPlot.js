@@ -16,7 +16,7 @@ const hums = [];
 const acels = [];
 labels.push(gettingData('M_Temperatura', 1)[0]);
 
-axios.get(`https://proyecto-sun-and-play-server.herokuapp.com/data/M_Temperatura/1/true`).then((response) => {
+axios.get(`https://tachas-web-api.herokuapp.com/data/M_Temperatura/1/true`).then((response) => {
   let numTachas = Object.values(response.data.data[0])[0];
   ['M_Temperatura', 'M_Humedad', 'M_Aceleracion'].forEach((param) => {
     for (let m = 1; m <= numTachas; m++) {

@@ -25,7 +25,8 @@ class App extends Component {
     const dbloc = ref(db, 'locations/');
     const dbColor = ref(db, 'downlink/');
 
-    //onValue se actualiza cada vez que algun dato cambia en la base de datos de RealTime Database
+    //onValue se ejecuta cada vez que algun dato cambia en la base de datos de RealTime Database
+
     //Para las posiciones de las tachas
     onValue(dbloc, (snapshot) => {
       let loc =[];
