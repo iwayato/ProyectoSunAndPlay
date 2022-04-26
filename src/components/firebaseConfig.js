@@ -1,3 +1,5 @@
+// Firebase RealTime Database
+
 const firebaseConfig = {
     apiKey: "AIzaSyCmu5JdL3q-J0raByo43hZvcoP-TpIpAzc",
     authDomain: "tachas-app-test.firebaseapp.com",
